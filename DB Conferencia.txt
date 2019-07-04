@@ -1,0 +1,174 @@
+Create DATABASE Conferencia;
+USE Conferencia; 
+
+CREATE TABLE Usuarios(
+	usu_id int(255) not null AUTO_INCREMENT PRIMARY KEY,
+    usu_cedula varchar(10) null,
+    usu_nombre varchar(50) null,
+    usu_apellido varchar(100) null,
+    usu_correo varchar(100) null,
+    usu_tipo varchar(12) null,
+    usu_sexo char(1) null,
+    usu_clave varchar(25) null,
+    created_at datetime DEFAULT null,
+    updated_at datetime DEFAULT null 
+)ENGINE=INNODB;
+
+CREATE TABLE Laboratorios(
+	lab_id int(10) not null AUTO_INCREMENT PRIMARY KEY,
+    lab_nombre varchar(50) null,
+    lab_capacidad int(3) null,
+    lab_porcenjajte_desborde int(3) null,
+    created_at datetime DEFAULT null, 
+    updated_at datetime DEFAULT null
+)ENGINE=INNODB;
+
+CREATE TABLE Encargados(
+	enc_id int(20) not null AUTO_INCREMENT PRIMARY KEY,
+    lab_id int(10) null,
+    enc_nombre varchar(50) null,
+    enc_apellido varchar(100) null,
+    enc_semestre varchar(20) null,
+    enc_curso varchar(20) null,
+    created_at datetime DEFAULT null,
+    updated_at datetime DEFAULT null,
+    CONSTRAINT fk_encargado_laboratorio FOREIGN key(lab_id) REFERENCES Laboratorios(lab_id)
+)ENGINE=INNODB;
+
+CREATE TABLE Horarios(
+	hor_id int(10) not null AUTO_INCREMENT PRIMARY KEY,
+    hor_inicio time null,
+    hor_fin time null,
+    hor_duracion int(3) null
+)ENGINE=INNODB;
+
+Create TABLE Ponentes(
+	pon_id int(255) not null AUTO_INCREMENT PRIMARY KEY,
+    pon_cedula varchar(10) null,
+    pon_nombre varchar(50) null,
+    pon_apellido varchar(100) null,
+    pon_titulo varchar(255) null,
+    pon_sexo char null,
+    pon_telefono varchar(10) null
+)ENGINE=INNODB;
+
+CREATE TABLE Conferencias(
+	conf_id int(255) not null AUTO_INCREMENT PRIMARY KEY,
+    conf_tema varchar(255) null,
+    conf_descripcion text null,
+    conf_area varchar(255) null,
+    pon_id int(255) null,
+    lab_id int(10) null,
+    hor_id int(10) null,
+    CONSTRAINT fk_ponente_conferencia FOREIGN KEY (pon_id) REFERENCES Ponentes(pon_id),
+    CONSTRAINT fk_laboratorio_conferencia FOREIGN KEY (lab_id) REFERENCES Laboratorios(lab_id),
+    CONSTRAINT fk_horario_conferencia FOREIGN KEY (hor_id) REFERENCES Horarios(hor_id)
+)ENGINE=INNODB;
+
+Create table Asistencias(
+	asi_id int(255) not null AUTO_INCREMENT PRIMARY KEY,
+    conf_id int(255) null,
+    asi_confirmacion boolean null,
+    asi_prioridad int(3) null,
+    created_at datetime DEFAULT null,
+    updated_at datetime DEFAULT null,
+    CONSTRAINT fk_conferencia_asistencia FOREIGN KEY (conf_id) REFERENCES Conferencias(conf_id)
+    
+)ENGINE=INNODB;
+
+CREATE TABLE Usu_asis(
+    usu_id int(255) not null,
+    asi_id int(255) not null,
+    CONSTRAINT fk_usu_asi_usuario FOREIGN KEY(usu_id) REFERENCES Usuarios(usu_id),
+    CONSTRAINT fk_usu_asi_asistencias FOREIGN KEY(asi_id) REFERENCES Asistencias(asi_id)
+)ENGINE=INNODB;
+
+#Parte de los proyectos y los grupos con sus integrantes 
+CREATE TABLE Grupos(
+	grup_id int(255) not null AUTO_INCREMENT PRIMARY KEY,
+    grup_nombre varchar(100) null,
+    grup_n_miembros int(10) null
+)ENGINE= INNODB;
+
+CREATE TABLE Integrantes(
+	int_id int(255) not null AUTO_INCREMENT PRIMARY KEY,
+    int_nombre varchar(50) null,
+    int_apellido varchar(100) null,
+    int_curso varchar(100) null,
+    int_semestre varchar(100) null,
+    int_carrera varchar(100) null,
+    grup_id int(255) null,
+    CONSTRAINT fk_grupo_integrante FOREIGN KEY (grup_id) REFERENCES Grupos(grup_id)
+)ENGINE=INNODB;
+
+CREATE TABLE Proyectos(
+	pro_id int(255) not null AUTO_INCREMENT PRIMARY KEY,
+    pro_tema varchar(255) null,
+    pro_descripcion text null,
+    grup_id int(55) null,
+    CONSTRAINT fk_grupo_proyecto FOREIGN KEY (grup_id) REFERENCES Grupos(grup_id)
+)ENGINE=INNODB;
+
+#Rellenando la base de datos
+#Usuarios
+INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `usu_correo`, `usu_tipo`, `usu_sexo`, `usu_clave`, `created_at`, `updated_at`) VALUES (NULL, '2400', 'María', 'González Figueroa', 'maria@gmail.com', 'Estudiante', 'F', 'maria', '2019-07-16 00:00:00', '2019-07-11 00:00:00');
+INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `usu_correo`, `usu_tipo`, `usu_sexo`, `usu_clave`, `created_at`, `updated_at`) VALUES (NULL, '2401', 'Felipe', 'Castro Malavé', 'felipe@gmail.com', 'Invitado', 'M', 'felipe', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `usu_correo`, `usu_tipo`, `usu_sexo`, `usu_clave`, `created_at`, `updated_at`) VALUES (NULL, '2402', 'Andrea', 'Quirumbay Suárez', 'andrea@live.com', 'Estudiante', 'F', 'andrea', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `usu_correo`, `usu_tipo`, `usu_sexo`, `usu_clave`, `created_at`, `updated_at`) VALUES (NULL, '2403', 'Gabriel', 'Figueroa Roca', 'gabriel@live.com', 'Estudiante', 'M', 'gabriel', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `usu_correo`, `usu_tipo`, `usu_sexo`, `usu_clave`, `created_at`, `updated_at`) VALUES (NULL, '2404', 'Irene', 'Blanco Cruz', 'irene@live.com', 'Estudiante', 'F', 'irene', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `usu_correo`, `usu_tipo`, `usu_sexo`, `usu_clave`, `created_at`, `updated_at`) VALUES (NULL, '2405', 'Anna', 'Reyes Leon', 'anna@live.com', 'Invitado', 'F', 'anna', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `usu_correo`, `usu_tipo`, `usu_sexo`, `usu_clave`, `created_at`, `updated_at`) VALUES (NULL, '2406', 'Martín', ' Fernandez Santiago', 'martin@live.com', 'Estudiante', 'M', 'martin', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+
+#Laboratorios
+INSERT INTO `laboratorios` (`lab_id`, `lab_nombre`, `lab_capacidad`, `lab_porcenjajte_desborde`, `created_at`, `updated_at`) VALUES (NULL, '1', '50', '10', '2019-07-05 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `laboratorios` (`lab_id`, `lab_nombre`, `lab_capacidad`, `lab_porcenjajte_desborde`, `created_at`, `updated_at`) VALUES (NULL, '2', '40', '10', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `laboratorios` (`lab_id`, `lab_nombre`, `lab_capacidad`, `lab_porcenjajte_desborde`, `created_at`, `updated_at`) VALUES (NULL, '3', '60', '10', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+
+#Ponentes
+INSERT INTO `ponentes` (`pon_id`, `pon_cedula`, `pon_nombre`, `pon_apellido`, `pon_titulo`, `pon_sexo`, `pon_telefono`) VALUES (NULL, '2300', 'Lorenzo', 'Álvaro Sola', 'Ingeniero en Electrónica', 'M', '09834323');
+INSERT INTO `ponentes` (`pon_id`, `pon_cedula`, `pon_nombre`, `pon_apellido`, `pon_titulo`, `pon_sexo`, `pon_telefono`) VALUES (NULL, '2301', 'Bruno ', 'Sole Blanco', 'Ing en Telecomunicaciones', 'M', '0897833');
+INSERT INTO `ponentes` (`pon_id`, `pon_cedula`, `pon_nombre`, `pon_apellido`, `pon_titulo`, `pon_sexo`, `pon_telefono`) VALUES (NULL, '2302', 'Óscar', 'Serrano Ibañez', 'Ingeniero en Sistemas', 'M', '0943423');
+
+#Ecargados
+INSERT INTO `encargados` (`enc_id`, `lab_id`, `enc_nombre`, `enc_apellido`, `enc_semestre`, `enc_curso`, `created_at`, `updated_at`) VALUES (NULL, '1', 'Alma', 'Iglesias Santos', 'Sexto', '1', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `encargados` (`enc_id`, `lab_id`, `enc_nombre`, `enc_apellido`, `enc_semestre`, `enc_curso`, `created_at`, `updated_at`) VALUES (NULL, '2', 'Julia', 'Hidalgo Roman', 'Octavo', '1', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `encargados` (`enc_id`, `lab_id`, `enc_nombre`, `enc_apellido`, `enc_semestre`, `enc_curso`, `created_at`, `updated_at`) VALUES (NULL, '3', 'Isabel ', 'Peña Rojas', 'Octavo', '1', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+
+#Horarios
+INSERT INTO `horarios` (`hor_id`, `hor_inicio`, `hor_fin`, `hor_duracion`) VALUES (NULL, '09:00:00', '9:30:00', '30');
+INSERT INTO `horarios` (`hor_id`, `hor_inicio`, `hor_fin`, `hor_duracion`) VALUES (NULL, '10:00:00', '10:30:00', '30');
+INSERT INTO `horarios` (`hor_id`, `hor_inicio`, `hor_fin`, `hor_duracion`) VALUES (NULL, '12:00:00', '12:30:00', '30');
+INSERT INTO `horarios` (`hor_id`, `hor_inicio`, `hor_fin`, `hor_duracion`) VALUES (NULL, '13:00:00', '13:30:00', '30')
+INSERT INTO `horarios` (`hor_id`, `hor_inicio`, `hor_fin`, `hor_duracion`) VALUES (NULL, '14:00:00', '14:00:00', '30');
+
+#Conferencias
+INSERT INTO `conferencias` (`conf_id`, `conf_tema`, `conf_descripcion`, `conf_area`, `pon_id`, `lab_id`, `hor_id`) VALUES (NULL, 'Internet de las Cosas', 'El IoT consiste en la expansión de las redes de datos, o la conectividad avanzada de casi toda clase de dispositivos, desde videoconsolas a vehículos de motor o electrodomésticos.', 'Informática', '1', '1', '1');
+INSERT INTO `conferencias` (`conf_id`, `conf_tema`, `conf_descripcion`, `conf_area`, `pon_id`, `lab_id`, `hor_id`) VALUES (NULL, 'Biometría', 'Los desarrolladores de smartphones están incluyendo lectores de huellas dactilares en sus dispositivos, ciertas instituciones financieras están poniendo a prueba sistemas de seguridad con reconocimiento facial y de voz para identificar a sus clientes, y el gobierno británico ya emplea esta tecnología para las solicitudes de residencia.', 'Tecnología', '2', '1', '2');
+INSERT INTO `conferencias` (`conf_id`, `conf_tema`, `conf_descripcion`, `conf_area`, `pon_id`, `lab_id`, `hor_id`) VALUES (NULL, 'Impresión en 3D', 'Esta tecnología podría permitir a las empresas reconcebir el almacenamiento de existencias, especialmente en el caso de pequeñas cantidades de piezas obsoletas que aún necesitan tener disponibles.', 'Informática', '3', '1', '3');
+INSERT INTO `conferencias` (`conf_id`, `conf_tema`, `conf_descripcion`, `conf_area`, `pon_id`, `lab_id`, `hor_id`) VALUES (NULL, 'Complementos inteligentes', 'Los relojes inteligentes, gafas, pulseras y otros dispositivos han llevado la tecnología a situaciones fuera del alcance de los PC, los portátiles, e incluso de los smartphones. Lo que Deloitte ha definido como “logística digital que llega justo a tiempo” cuenta con el potencial de ofrecer a las empresas una comprensión mucho más profunda de sus clientes, permitiéndoles a su vez interactuar de una forma mucho más personalizada.', 'Tecnología', '2', '2', '1');
+
+#Asistencias
+INSERT INTO `asistencias` (`asi_id`, `conf_id`, `asi_confirmacion`, `asi_prioridad`, `created_at`, `updated_at`) VALUES (NULL, '1', '1', '0', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `asistencias` (`asi_id`, `conf_id`, `asi_confirmacion`, `asi_prioridad`, `created_at`, `updated_at`) VALUES (NULL, '1', '1', '0', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `asistencias` (`asi_id`, `conf_id`, `asi_confirmacion`, `asi_prioridad`, `created_at`, `updated_at`) VALUES (NULL, '1', '1', '0', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+INSERT INTO `asistencias` (`asi_id`, `conf_id`, `asi_confirmacion`, `asi_prioridad`, `created_at`, `updated_at`) VALUES (NULL, '2', '1', '0', '2019-07-04 00:00:00', '2019-07-04 00:00:00'), (NULL, '2', '1', '0', '2019-07-04 00:00:00', '2019-07-04 00:00:00');
+
+
+
+#usu_asi
+INSERT INTO `usu_asis` (`usu_id`, `asi_id`) VALUES ('1', '1'), ('3', '2');
+INSERT INTO `usu_asis` (`usu_id`, `asi_id`) VALUES ('5', '3');
+INSERT INTO `usu_asis` (`usu_id`, `asi_id`) VALUES ('9', '4'), ('8', '5');
+
+
+#Grupos 
+INSERT INTO `grupos` (`grup_id`, `grup_nombre`, `grup_n_miembros`) VALUES (NULL, 'Grupo 1', '2'), (NULL, 'Grupo 2', '2');
+
+
+#Integrantes
+INSERT INTO `integrantes` (`int_id`, `int_nombre`, `int_apellido`, `int_curso`, `int_semestre`, `int_carrera`, `grup_id`) VALUES (NULL, 'Pablo', 'Serra Romero', '2', 'Cuarto', 'Informática', '1'), (NULL, 'Rubén', 'Rubén', '1', 'Cuarto', 'Informática', '1');
+INSERT INTO `integrantes` (`int_id`, `int_nombre`, `int_apellido`, `int_curso`, `int_semestre`, `int_carrera`, `grup_id`) VALUES (NULL, 'Elsa', 'Domenech Cortes', '1', 'Quinto', 'Electrónica', '2'), (NULL, 'Julia', 'Gallego Gimenez', '1', 'Quinto', 'Electrónica', '2');
+
+#Proyectos
+INSERT INTO `proyectos` (`pro_id`, `pro_tema`, `pro_descripcion`, `grup_id`) VALUES (NULL, 'La tecnología aplicada a la medicina', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae illum ex laborum voluptates cum? Sapiente inventore nihil rem? Dolorem nisi quod sint reprehenderit libero recusandae expedita fugit debitis corporis enim.', '1');
+INSERT INTO `proyectos` (`pro_id`, `pro_tema`, `pro_descripcion`, `grup_id`) VALUES (NULL, 'La robótica y su utilitdad', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem omnis illo aspernatur suscipit aperiam dolore a veritatis autem doloribus pariatur nihil fugit odio laborum voluptatum, deleniti quod nostrum sit eaque?', '2');
