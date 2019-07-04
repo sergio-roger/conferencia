@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Sniglet&display=swap');
+
+h1,h2,h3{
+    font-family: 'Sniglet', cursive;
+}
+
 .borde-1{
     border: 1px solid red;
 }
@@ -25,13 +31,22 @@ header{
 }
 
 .envoltura .texto-principal{
-    
+    color: #fff;
+    height: 80vh;
+}
+
+.envoltura .texto-principal h1{
+    font-size: 70px;
+}
+.envoltura .texto-principal h2{
+    font-size: 45px;
 }
 
 header .logo{
     width: 30%;
     font-size: 25px;
     font-weight: bold;
+    font-family: 'Sniglet', cursive;
 }
 
 header .menu{
@@ -54,4 +69,41 @@ header .menu a{
 header .menu a:hover{
     background-color: #63aabc;
     transition: all .4s;
+}
+
+header .detalle{
+    height: 75px;
+}
+
+header .dm{
+    height: 100%;
+    padding-top: 20px;
+    width: 100px;
+    border: 1px solid rgba(255,255,255,0.6);
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    font-weight: lighter;
+}
+
+header .lugar{
+    width: 180px;
+    border-left: none;
+}
+
+header .reservar{
+    border-radius: 5px;
+    color: rgba(0,0,0,0.8);
+    background: white;
+    font-weight: bold;
+    width: 120px;
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+header .reservar:hover{
+    transform: scale(1.1);
+    transition: all 0.2s;
+
 }
