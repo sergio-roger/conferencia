@@ -79,9 +79,29 @@ header .menu a:hover{
     transition: all .4s;
 }
 
+header .boton{
+    height: 75px;
+}
+
+header .registro{
+    opacity: 0.8 !important;
+}
+
+header .inicio{
+    background-color:  #60204b;
+    border: none; 
+    color: white;
+    opacity: 0.8;
+}
+
+header .registro:hover, header .inicio:hover{
+    opacity: 1;
+}
+
 header .detalle{
     height: 75px;
     margin-top: -50px;
+    /* margin-top: -65px; */
 }
 
 header .dm{
@@ -92,11 +112,13 @@ header .dm{
     text-align: center;
     color: rgba(255,255,255,0.6);
     font-weight: lighter;
+    display: inline-block;
 }
 
 header .lugar{
     width: 180px;
     border-left: none;
+    margin-right: 70px;
 }
 
 header .reservar{
@@ -116,12 +138,18 @@ header .reservar:hover{
     transition: all 0.2s;
 }
 
+header button{
+    margin-left: 10px;
+}
+
+header .registro
 /*Seccion 1*/
 section .seccion-1{
     margin-top: 50px;
 }
 
 section .titulo{
+    margin-top: 50px;
     margin-bottom: 45px;
 }
 

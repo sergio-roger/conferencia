@@ -115,6 +115,18 @@
     input[type="text"], input[type="email"], input[type="password"], select{
         margin-bottom: 10px;
     }
+    .adaptar{
+        margin-top: 20px;
+        height: 100%;
+        justify-content: flex-start;
+    }
+    header .boton{
+        height: 50px;
+    }
+    header .dm {
+        padding-top: 12px;
+        height: 50px;
+    }
 }
 
 /* // Medium devices (tablets, 768px and up) */
