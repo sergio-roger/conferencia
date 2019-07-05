@@ -25,8 +25,8 @@
 
             <div class="menu d-md-flex justify-content-md-between align-items-center">
                 <a href="#">Inicio</a>
-                <a href="#">Conferencias</a>
-                <a href="#">Proyecto</a>
+                <a href="#conferencias">Conferencias</a>
+                <a href="#proyectos">Proyecto</a>
                 <a href="#">Cronograma</a>
             </div>
           </nav>
@@ -50,8 +50,8 @@
                   </div>
                   <div class="col-12 col-sm-6 col-md-6 d-flex justify-content-md-end adaptar justify-content-center">
                       <!-- <a class="dm reservar" href="#">Reservar</a> -->
-                      <button class="boton registro btn btn-success">Registrarme</button>
-                      <button class="boton inicio">Iniciar Sección</button>   
+                      <a class="boton registro btn btn-success" href="#formulario">Registrarme</a>
+                      <a class="boton inicio">Iniciar Sección</a>   
                   </div>         
               </div>
             </div>
@@ -59,7 +59,7 @@
     </header>
 
     <!-- Seccion de conferencias -->
-    <section>
+    <section id="conferencias">
         <div class="container seccion-1">
             <div class="titulo text-center">
                 <h2>Conferencias</h2>
@@ -169,7 +169,7 @@
     </section>
 
     <!-- Casa abierta -->
-    <section class="casa-abierta">
+    <section class="casa-abierta" id="proyectos">
         <div class="casa-abierta-caja container">
             <div class="titulo text-center">
                 <h2>Proyectos</h2>
@@ -222,7 +222,7 @@
     <!-- Casa abierta -->
 
     <!-- Formulario de Registro -->
-    <section class="form-p">
+    <section class="form-p" id="formulario">
         <div class="container formulario">
             <div class="titulo text-center">
                 <h2>Formulario de Registro</h2>
@@ -279,9 +279,12 @@
       </div> 
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
 
