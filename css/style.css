@@ -45,6 +45,55 @@
         /* font-size: 20px; */
         text-align: center;
     }
+
+    nav{
+        /* border: 1px solid red; */
+        position: fixed;
+        width: 100% !important;
+        max-width: 100% !important;
+       background-color:  #63aabc; 
+        z-index: 100;
+    }
+
+    nav label{
+        display: block;
+        font-size: 30px;
+    }
+
+    .envoltura .menu{
+        top: 75px;
+        left: 0;
+        display: flex;
+       position: absolute;
+       /* border: 1px solid green; */
+       flex-direction: column;
+       height: auto;
+       width: 100%;
+        background-color: rgba(0,0,0,1);
+       transform: translateX(-100%);
+       transition: all 0.4s ease;   
+       z-index: 100;
+    }
+    
+    .envoltura .menu a{
+        padding-left: 20px;    
+        /* border: 1px solid red; */
+        width: 100%;
+        height: 50px;
+        padding-top: 10px;
+        text-align: start;
+        transition: all 0.2s;
+        z-index: 100;
+    }
+
+    .envoltura .menu a:hover{
+        background-color:  #63aabc; 
+    }
+
+    #btn-menu:checked ~ .menu{
+       transform: translateX(0%);
+       transition: all 0.4s ease;
+    }
 }
 
 @media (max-width: 576px) {
@@ -62,6 +111,9 @@
     }
     .formulario .btn-registrar{
         width: 100%;
+    }
+    input[type="text"], input[type="email"], input[type="password"], select{
+        margin-bottom: 10px;
     }
 }
 
