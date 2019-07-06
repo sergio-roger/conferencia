@@ -21,26 +21,36 @@
 
                 <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
                     <a href="dashboard.html"><i class="icon-home"></i><span>Inicio</span></a>
-                    <a href=""><i class="icon-ticket"></i><span>Reservar</span></a>
-                    <a href=""><i class="icon-eye"></i><span>Ver reservas</span></a>
+                    <a href="#"><i class="icon-ticket"></i><span>Reservar</span></a>
+                    <a href="ver-reservas.html"><i class="icon-eye"></i><span>Ver reservas</span></a>
                     <a href=""><i class="icon-cog-alt"></i><span>Configuraciones</span></a>
                     <a href=""><i class="icon-logout"></i><span>Salir</span></a>
 
                 </nav>
             </div>
             
-            <main class="main col">
+            <main class="main">
                 <div class="row">
                     <div class="columna col-lg-8">
                         <div class="widget reservas">
                             <h3 class="titulo">Realizar reservas</h3>
 
-                            <div class="combo">
-                                <label for="filtro">Filtrar por:</label>
-                                <select name="filtro" id="cmb-filtro" class="form-control">
-                                    <option value="lab">Laboratorio</option>
-                                    <option value="hor">Hora inicio</option>
-                                </select>
+                            <div class="combo row">
+                                <div class="col-12 col-sm-7 col-md-6">
+                                    <label for="filtro">Filtrar por:</label>
+                                    <select name="filtro" id="cmb-filtro" class="form-control">
+                                        <option value="lab">Laboratorio</option>
+                                        <option value="hor">Hora inicio</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-5 col-md-6">
+                                    <!-- Dinamico -->
+                                    <label for="opcion">Opciones</label>
+                                    <select name="opcion" id="cmb-opcion" class="form-control">
+                                        <option value="lab-1">Laboratorio 1</option>
+                                        <option value="lab-2">Laboratorio 2</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <table class="table table-sm table-hover">
@@ -99,19 +109,29 @@
 
                     <div class="columna col-lg-4">
                         <div class="widget estadistica">
-                            <h3 class="titulo">Estadisticas</h3>
-                            <div class="contenedor d-flex flex-wrap">
+                            <h3 class="titulo aside-titulo">Proyectos</h3>
+                            <div class="contenedor d-md-flex flex-lg-column">
+                                <!-- Dinamico -->
                                 <div class="caja">
-                                    <h3>15,236</h3>
-                                    <p>Visitas</p>
+                                    <h5>Tema de Proyecto</h5>
+                                    <span>Grupo</span>
+                                    <p>Pequeña reseña Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                                        Numquam neque placeat consectetur! Laudantium nesciunt, unde exercitationem
+                                    </p>
                                 </div>
                                 <div class="caja">
-                                    <h3>1,831</h3>
-                                    <p>Registros</p>
+                                    <h5>Tema de Proyecto</h5>
+                                    <span>Grupo</span>
+                                    <p>Pequeña reseña Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                                        Numquam neque placeat consectetur! Laudantium nesciunt, unde exercitationem
+                                    </p>
                                 </div>
                                 <div class="caja">
-                                    <h3>$160,548</h3>
-                                    <p>Ingresos</p>
+                                    <h5>Tema de Proyecto</h5>
+                                    <span>Grupo</span>
+                                    <p>Pequeña reseña Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                                        Numquam neque placeat consectetur! Laudantium nesciunt, unde exercitationem
+                                    </p>
                                 </div>
                             </div>
                         </div>

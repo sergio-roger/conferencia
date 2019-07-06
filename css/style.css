@@ -287,3 +287,22 @@ footer{
 footer .footer{
     color: rgba(255,255,255,0.6);
 }
+/* Modal */
+.modal{
+    margin-top: 5%;
+}
+
+.modal-header{
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0px;
+}
+
+.modal-header .close{
+    color: #fff;
+}
+
+.modal .ingresar{
+    /* background-color: #63aabc; */
+}
