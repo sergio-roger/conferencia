@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css?family=Sniglet&display=swap');
+@import url('https://fonts.googleapis.com/css?family=News+Cycle:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+
+/* h1,h2,h3{
+    font-family: 'Sniglet', cursive;
+} */
+
+.borde-1{
+    border: 1px solid red;
+}
+
+body{
+    background: #f2f2f2;
+    font-size: 16px;
+    font-family: 'News Cycle', sans-serif;
+}
+
+/*--Barra lateral---*/
+.barra-lateral{
+    background: #262a34;
+    color: #fff; 
+    min-width: 300px;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.barra-lateral a{
+    color: #fff;
+}
+
+/*---Logo---*/
+.barra-lateral .logo{
+    background: #63aabc;
+    margin-bottom: 2px;
+}
+
+.logo h2{
+    letter-spacing: 2px;
+    font-family: 'Sniglet', cursive;
+    font-size: 30px; 
+    font-weight: 300;
+    margin: 0;
+    padding: 20px 0;
+}
+
+/*--- Menu---*/
+
+.barra-lateral .menu a{
+    display: block;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.barra-lateral .menu a:hover{
+    background:  #60204b;
+    text-decoration: none;
+}
+
+.barra-lateral .menu a i{
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+/* --- Main----*/
+.main{
+    padding-top: 40px;
+}
+
+.main .columna{
+    padding: 0 20px;
+}
+
+.main .titulo{
+    color: #262a34;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+}
+
+.main .widget{
+    margin-bottom: 40px;
+}
+
+/*  ------  widget----*/
+
+.main .widget form input[type="text"],
+.main .widget form textarea{
+    width: 100%;
+    padding: 10px; 
+    margin-bottom: 20px;
+    font-family: 'News Cycle', sans-serif;
+    border: none;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,.2);
+}
+
+.main .widget form input[type="text"]{
+    font-weight: 400;
+}
+
+.main .widget form textarea{
+    height: 400px;
+    min-height: 200px;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.main .widget form button{
+    background: #0275d8;
+    cursor: pointer; 
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    border: none; 
+    display: inline-block; 
+    padding: 10px;
+    width: 200px;
+    border-radius: 3px;
+    transition: all .3 ease; 
+}
+
+.main .widget form button:hover{
+    background: #025aa5;
+}
+
+
+/*  ------  widget estadisticas----*/
+
+.main .estadistica .contenedor {
+	box-shadow: 0px 1px 1px 0px rgba(0,0,0,.2);
+}
+
+.main .estadistica .caja {
+	background: #fff;
+	border: 1px solid #e3e3e3;
+	padding: 40px 20px;
+	flex: 1;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+.main .estadistica .caja h3 {
+	margin-bottom: 10px;
+	color: #35ae6b;
+}
+
+.main .estadistica .caja p{
+    color: #a8a8a8; 
+    margin-bottom: 0;
+}
+
+.main .estadistica .caja:first-child{
+    border-right: none;
+}
+.main .estadistica .caja:last-child{
+    border-left: none;
+}
+
+/* Boton asistir */
+.asistir{
+    background-color: #60204b;
+    color: #fff; 
+    border-radius: 5px;
+    padding: 5px;
+    width: 95px;
+    opacity: .8;
+}
+
+.asistir:hover{
+    opacity: 1;
+}
+
+/* Widget */
+.reservas{
+    box-shadow: 0 0 4px rgba(0,0,0,.4);
+    padding: 20px;
+    background-color: #fff;
+}
+/* Combo */
+.combo{
+    margin: 10px 0 ;
+    margin-bottom: 20px;
+}
+
+.combo label{
+    font-weight: bold;
+}
+/* ----------- Media query -----------*/
+@media screen and (max-width:1300px)
+{
+    .barra-lateral{
+        min-width: auto;
+    }
+
+    .barra-lateral .logo{
+        display: none;
+    }
+
+    .barra-lateral .menu a span{
+        display: none;
+    }
+
+    .barra-lateral .menu a i{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:575px)
+{
+    .barra-lateral{
+        min-height: auto;
+    }
+
+    .barra-lateral .menu a {
+        display: inline-block;
+        border: none; 
+    }
+
+    .main .widget form button{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:320px)
+{
+    .main .comentarios .comentario .foto{
+        width: 30px; 
+        height: 30px;
+    }
+
+    .main .comentarios .comentario .botones button{
+        width: 100%;
+    }
+}

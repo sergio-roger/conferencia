@@ -1,0 +1,226 @@
+
+/* Estilos para el responsive */
+
+@media (max-width: 992px) {
+    .header .menu {
+        height: 100%;
+        width: 60%;
+    }
+    .envoltura .texto-principal h1 {
+        font-size: 40px;
+    }
+    .envoltura .texto-principal h2 {
+        font-size: 26px;
+    }
+    .envoltura .texto-principal {
+        color: #fff;
+        height: 70vh;
+    }
+    .header .detalle {
+        height: 60px;
+        margin-top: -40px;
+    }
+    .header .dm{
+        padding-top: 16px;
+    }
+    .conferencia-caja .btn-reservar {
+        width: 100%;
+    }
+    .conferencia-caja button{
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+@media (max-width: 768px) {
+    .envoltura .texto-principal h1 {
+        font-size: 37px;
+        text-align: center;
+    }
+    .envoltura .texto-principal h2 {
+        font-size: 26px;
+        text-align: center;
+    }
+    .banner-caja h3{
+        /* font-size: 20px; */
+        text-align: center;
+    }
+
+    nav{
+        /* border: 1px solid red; */
+        position: fixed;
+        width: 100% !important;
+        max-width: 100% !important;
+       background-color:  #63aabc; 
+        z-index: 100;
+    }
+
+    nav label{
+        display: block;
+        font-size: 30px;
+    }
+
+    .envoltura .menu{
+        top: 75px;
+        left: 0;
+        display: flex;
+       position: absolute;
+       /* border: 1px solid green; */
+       flex-direction: column;
+       height: auto;
+       width: 100%;
+        background-color: rgba(0,0,0,1);
+       transition: all 0.4s ease;   
+       z-index: 100;
+       transform: translateX(-100%);
+    }
+    
+    .envoltura .menu a{
+        padding-left: 20px;    
+        /* border: 1px solid red; */
+        width: 100%;
+        height: 50px;
+        padding-top: 10px;
+        text-align: start;
+        transition: all 0.2s;
+        z-index: 100;
+    }
+
+    .envoltura .menu a:hover{
+        background-color:  #63aabc; 
+    }
+
+    /* Estilos para el dashboard */
+    .fixed-top{
+        position: relative;
+    }
+    .menu-dashboard {
+        margin-top: 0px !important;
+        /* width: 300px !important; */
+        transition: all 0.3s ease;
+    }
+    .menu-logo h5{
+        display: none;
+    }
+
+    .contenido{
+        top: 0px;
+        left: 110px;
+        margin-left: 0 !important;
+    }
+
+    .item-menu{
+        text-align: start;
+    }
+
+    .item-menu:hover{
+        background-color: rgba(0,0,0,.8);
+    }
+
+    .item-menu span{
+        display: none;
+    }
+
+    .item-menu a{
+        width: 100%;
+        text-align: center;
+    }
+
+    .caja-titulo{
+        position: fixed;
+    }
+
+    .ajustar-menu{
+        top: 68px;
+        width: 100px;
+        overflow: hidden;
+        position: fixed;
+    }
+}
+
+@media (max-width: 576px) {
+    .envoltura .texto-principal h1 {
+        font-size: 28px;
+    }
+    .envoltura .texto-principal h2 {
+        font-size: 20px;
+    }
+    .conferencia-botones{
+        width: 50%;
+    }
+    .banner-caja h3{
+        font-size: 20px;
+    }
+    .formulario .btn-registrar{
+        width: 100%;
+    }
+    input[type="text"], input[type="email"], input[type="password"], select{
+        margin-bottom: 10px;
+    }
+    .adaptar{
+        margin-top: 20px;
+        height: 100%;
+        justify-content: flex-start;
+    }
+    .header .boton{
+        height: 50px;
+        padding-top: 10px;
+    }
+
+    .header .dm {
+        padding-top: 12px;
+        height: 50px;
+    }
+
+    /* Estilos para el dashboard */
+    nav{
+        height: 60px;
+    }
+    .caja-titulo{
+        display: none;
+    }
+    .menu-dashboard {
+        margin-top: 0px !important;
+    }
+    .menu-logo{
+        font-size: 20px;
+        height: 50px;
+        display: none !important;
+    }
+    .menu-logo h5{
+        font-size: 25px;
+    }
+    .menu-box{
+        height: 60px;
+    }
+
+    .item-menu{
+        width: 39%;
+        height: 100% !important;
+        display: inline-block !important;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .item-menu:hover{
+        background-color: rgba(0,0,0,.8);
+    }
+
+    .contenido{
+        /* position: absolute !important; */
+        margin-left: 0px !important;
+        margin-top: 30px !important;
+    }
+
+    .contenido-barra{
+        margin-top: 50px;
+    }
+
+    .form-control{
+        width: 95%;
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+
+
+/* // Large devices (desktops, 992px and up) */
