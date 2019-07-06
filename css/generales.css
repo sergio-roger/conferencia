@@ -73,6 +73,9 @@ header .menu a{
     font-weight: bold;
     transition: all .4s;
 }
+.efecto-menu{
+    transform: translateX(0) !important;   
+}
 
 header .menu a:hover{
     background-color: #63aabc;

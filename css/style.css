@@ -3,7 +3,7 @@
 /* Estilos para el responsive */
 
 @media (max-width: 992px) {
-    header .menu {
+    .header .menu {
         height: 100%;
         width: 60%;
     }
@@ -17,11 +17,11 @@
         color: #fff;
         height: 70vh;
     }
-    header .detalle {
+    .header .detalle {
         height: 60px;
         margin-top: -40px;
     }
-    header .dm{
+    .header .dm{
         padding-top: 16px;
     }
     .conferencia-caja .btn-reservar {
@@ -70,9 +70,9 @@
        height: auto;
        width: 100%;
         background-color: rgba(0,0,0,1);
-       transform: translateX(-100%);
        transition: all 0.4s ease;   
        z-index: 100;
+       transform: translateX(-100%);
     }
     
     .envoltura .menu a{
@@ -88,11 +88,6 @@
 
     .envoltura .menu a:hover{
         background-color:  #63aabc; 
-    }
-
-    .deslizar-menu{
-        transform: translateX(0%);
-       transition: all 0.4s ease;
     }
 }
 
@@ -120,12 +115,12 @@
         height: 100%;
         justify-content: flex-start;
     }
-    header .boton{
+    .header .boton{
         height: 50px;
         padding-top: 10px;
     }
 
-    header .dm {
+    .header .dm {
         padding-top: 12px;
         height: 50px;
     }
