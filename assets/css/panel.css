@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css?family=Sniglet&display=swap');
+@import url('https://fonts.googleapis.com/css?family=News+Cycle:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+
+/* h1,h2,h3{
+    font-family: 'Sniglet', cursive;
+} */
+
+.borde-1{
+    border: 1px solid red;
+}
+
+body{
+    background: #f2f2f2;
+    font-size: 16px;
+    font-family: 'News Cycle', sans-serif;
+}
+
+/*--Barra lateral---*/
+.barra-lateral{
+    background: #262a34;
+    color: #fff; 
+    min-width: 300px;
+    min-height: 100vh;
+    padding: 0;
+    position: fixed;
+}
+
+.barra-lateral a{
+    color: #fff;
+}
+
+/*---Logo---*/
+.barra-lateral .logo{
+    background: #63aabc;
+    margin-bottom: 2px;
+}
+
+.logo h2{
+    letter-spacing: 2px;
+    font-family: 'Sniglet', cursive;
+    font-size: 30px; 
+    font-weight: 300;
+    margin: 0;
+    padding: 20px 0;
+}
+
+/*--- Menu---*/
+
+.barra-lateral .menu a{
+    display: block;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.barra-lateral .menu a:hover{
+    background:  #60204b;
+    text-decoration: none;
+}
+
+.barra-lateral .menu a i{
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+/* --- Main----*/
+.main{
+    padding-top: 40px;
+    position: relative;
+    left: 300px;
+    width: 76.6%;
+    padding-left: 10px;
+}
+
+.main .columna{
+    padding: 0 20px;
+}
+
+.main .titulo{
+    color: #262a34;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+}
+
+.aside-titulo{
+    background-color: #60204b;
+    color: #fff !important;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+}
+
+.main .widget{
+    margin-bottom: 40px;
+}
+
+/* Boton asistir */
+.asistir{
+    background-color: #60204b;
+    color: #fff; 
+    border-radius: 5px;
+    padding: 5px;
+    width: 95px;
+    opacity: .8;
+}
+
+.asistir:hover{
+    opacity: 1;
+}
+
+.reservas{
+    box-shadow: 0 0 4px rgba(0,0,0,.4);
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Combo */
+.combo{
+    margin: 10px 0 ;
+    margin-bottom: 20px;
+}
+
+.combo label{
+    font-weight: bold;
+}
+
+/* Estilos a los proyectos */
+.main .contenedor {
+	box-shadow: 0px 1px 1px 0px rgba(0,0,0,.2);
+}
+
+.main .caja {
+	background: #fff;
+	border: 1px solid #e3e3e3;
+    padding: 10px 10px;    
+	flex: 1;
+	text-align: center;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    box-shadow: 0 0 4px rgba(0,0,0,.4);
+    margin-bottom: 10px;
+    transition: all 0.2 ease;
+}
+
+.main .caja:hover{
+    transition: all 0.2 ease;
+    background: #262a34;
+    color: #fff;
+}
+
+.main .estadistica span{
+    padding: 4px 0px;
+    font-weight: bold;
+}
+
+.main .estadistica .caja h5 {
+	color: #63aabc;
+}
+
+.main .estadistica .caja p{
+    padding-top: 5px;
+    text-align: justify;
+    font-size: 0.9rem;
+}
+
+/* Los estilos responsives */
+@media screen and (max-width:400px){
+    .main{
+        top: 45px !important;
+        padding: 0;
+        width: 88%;
+    }
+
+    .barra-lateral .menu a {
+        display: inline-block;
+        border: none; 
+        padding: 0px;
+        height: 50px;
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width:575px){
+
+    .main{
+        left: 0px !important;
+        width: 99% !important;
+        top: 65px;
+        padding-top: 0;
+    }
+
+    .barra-lateral{
+        min-height: auto;
+        z-index: 100;
+    }
+
+    .barra-lateral .menu a {
+        display: inline-block;
+        border: none; 
+        padding-left: 15px;
+    }
+
+    .barra-lateral .menu a i{
+        text-align: center;
+    }
+
+    .main .widget form button{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:768px){
+    
+    .main{
+        padding-top: 8px;
+        left: 85px;
+        width: 84%;
+        padding-left: 0;
+    }
+
+    .logo{
+        display: none;
+    }
+    .barra-lateral{
+        min-width: 65px;
+    }
+}
+
+@media screen and (max-width:992px){
+    
+    .main{
+        padding-top: 10px;
+        left: 75px;
+        width: 89%;
+    }
+
+    .barra-lateral .menu a span{
+        display: none;
+    }
+
+    .barra-lateral{
+        min-width: 65px;
+    }
+
+    .logo h2{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:1200px){
+    .main{
+        width: 67%.6;
+        min-width: 250px !important;
+    }
+
+    .main .columna{
+        padding: 0 10px;;
+    }
+}
+
