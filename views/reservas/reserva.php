@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <label for="filtro">Filtrar por:</label>
                     <select name="filtro" id="cmb-filtro" class="form-control">
-                        <option selected value="lab">Laboratorio</option>
+                        <option selected value="lab">Lugar</option>
                         <option value="hor">Hora inicio</option>
                     </select>
                 </div>

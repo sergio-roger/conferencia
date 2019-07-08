@@ -12,10 +12,10 @@ function MostrarError(){
     $error->index();
 }
 
+
 if(!isset($_SESSION['login'])){
     header("Location:".base_url);    
 }
-
 
 if(isset($_GET['controller'])){
     $nombre_controlador = $_GET['controller'].'Controller';

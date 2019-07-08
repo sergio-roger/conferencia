@@ -1,98 +1,34 @@
-    <!-- Seccion de conferencias -->
-    <section id="conferencias">
-        <div class="container seccion-1">
+<?php 
+    // var_dump($_POST['conferencias']);
+
+    // while($conf =  $_POST['conferencias']->fetch_object()){
+    //     echo $conf->tema.'<br>';
+    // }
+?>
             <div class="titulo text-center">
                 <h2>Conferencias</h2>
             </div>
 
             <div class="contenido-conferencias">
                 <div class="row">
+                <?php while($conf =  $_POST['conferencias']->fetch_object()): ?>
                     <div class="col-12 col-sm-6 col-md-4 conferencia-caja dest">
-                        <h3>Internet de las Cosas</h3>
-                        <p>El IoT consiste en la expansión de las redes de datos, o la conectividad 
+                        <h3><?=$conf->tema?></h3>
+                        <!-- <p>El IoT consiste en la expansión de las redes de datos, o la conectividad 
                         avanzada de casi toda clase de dispositivos, desde videoconsolas a vehículos de 
-                        motor o electrodomésticos.</p>
+                        motor o electrodomésticos.</p> -->
                         <div class="conferencia-detalle">
-                            <p>Ponente: <span>Bruno Sole Blanco</span></p>
-                            <p>Lugar: <span>Laboratorio 1</span></p>
-                            <p>Hora inicio: <span>9:00:00</span></p>
+                            <p><span></span><?=$conf->area?></p>
+                            <p><span></span><?=$conf->ponentes?></p>
+                            <p><span></span><?=$conf->lugar?></p>
+                            <p><span></span><?=$conf->hora?></p>
                         </div>
 
                         <button class="btn btn-primary btn-reservar"> Reservar</button>
                         <button class="btn btn-dark">Mas info</button>
-                    </div>
+                    </div>   
+            <?php endwhile; ?>
 
-                    <div class="col-12 col-sm-6 col-md-4 conferencia-caja dest">
-                        <h3>Internet de las Cosas</h3>
-                        <p>El IoT consiste en la expansión de las redes de datos, o la conectividad 
-                        avanzada de casi toda clase de dispositivos, desde videoconsolas a vehículos de 
-                        motor o electrodomésticos.</p>
-                        <div class="conferencia-detalle">
-                            <p>Ponente: <span>Bruno Sole Blanco</span></p>
-                            <p>Lugar: <span>Laboratorio 1</span></p>
-                            <p>Hora inicio: <span>9:00:00</span></p>
-                        </div>
-
-                        <button class="btn btn-primary btn-reservar"> Reservar</button>
-                        <button class="btn btn-dark">Mas info</button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 conferencia-caja dest">
-                        <h3>Internet de las Cosas</h3>
-                        <p>El IoT consiste en la expansión de las redes de datos, o la conectividad 
-                        avanzada de casi toda clase de dispositivos, desde videoconsolas a vehículos de 
-                        motor o electrodomésticos.</p>
-                        <div class="conferencia-detalle">
-                            <p>Ponente: <span>Bruno Sole Blanco</span></p>
-                            <p>Lugar: <span>Laboratorio 1</span></p>
-                            <p>Hora inicio: <span>9:00:00</span></p>
-                        </div>
-
-                        <button class="btn btn-primary btn-reservar"> Reservar</button>
-                        <button class="btn btn-dark">Mas info</button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 conferencia-caja">
-                        <h3>Internet de las Cosas</h3>
-                        <p>El IoT consiste en la expansión de las redes de datos, o la conectividad 
-                        avanzada de casi toda clase de dispositivos, desde videoconsolas a vehículos de 
-                        motor o electrodomésticos.</p>
-                         <div class="conferencia-detalle">
-                            <p>Ponente: <span>Bruno Sole Blanco</span></p>
-                            <p>Lugar: <span>Laboratorio 2</span></p>
-                            <p>Hora inicio: <span>9:00:00</span></p>
-                        </div>
-
-                        <button class="btn btn-primary btn-reservar"> Reservar</button>
-                        <button class="btn btn-dark">Mas info</button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 conferencia-caja">
-                        <h3>Internet de las Cosas</h3>
-                        <p>El IoT consiste en la expansión de las redes de datos, o la conectividad 
-                        avanzada de casi toda clase de dispositivos, desde videoconsolas a vehículos de 
-                        motor o electrodomésticos.</p>
-                        <div class="conferencia-detalle">
-                            <p>Ponente: <span>Bruno Sole Blanco</span></p>
-                            <p>Lugar: <span>Laboratorio 2</span></p>
-                            <p>Hora inicio: <span>9:00:00</span></p>
-                        </div>
-
-                        <button class="btn btn-primary btn-reservar"> Reservar</button>
-                        <button class="btn btn-dark">Mas info</button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 conferencia-caja">
-                        <h3>Internet de las Cosas</h3>
-                        <p>El IoT consiste en la expansión de las redes de datos, o la conectividad 
-                        avanzada de casi toda clase de dispositivos, desde videoconsolas a vehículos de 
-                        motor o electrodomésticos.</p>
-                        <div class="conferencia-detalle">
-                            <p>Ponente: <span>Bruno Sole Blanco</span></p>
-                            <p>Lugar: <span>Laboratorio 2</span></p>
-                            <p>Hora inicio: <span>9:00:00</span></p>
-                        </div>
-
-                        <button class="btn btn-primary btn-reservar"> Reservar</button>
-                        <button class="btn btn-dark">Mas info</button>
-                    </div>
-                    
             </div>
         </div>
     </section>

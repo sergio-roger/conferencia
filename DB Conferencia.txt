@@ -23,6 +23,16 @@ CREATE TABLE Laboratorios(
     updated_at datetime DEFAULT null
 )ENGINE=INNODB;
 
+CREATE TABLE Moderador(
+	mod_id int(10) not null AUTO_INCREMENT PRIMARY KEY,
+    lab_id int(10) null,
+    mod_nombre varchar(50) null,
+    mod_apellido varchar(100) null,
+    created_at datetime DEFAULT null, 
+    updated_at datetime DEFAULT null,
+    CONSTRAINT fk_moderador_laboratorio FOREIGN key(lab_id) REFERENCES Laboratorios(lab_id)
+)ENGINE=INNODB;
+
 CREATE TABLE Encargados(
 	enc_id int(20) not null AUTO_INCREMENT PRIMARY KEY,
     lab_id int(10) null,

@@ -42,6 +42,8 @@ class UsuarioController{
                 if($registro){//Registro completo
                     $_SESSION['registro'] = "completo";
                     $_SESSION['nombres'] = $usuario->getNombre().'  '.$usuario->getApellido();
+                    $_SESSION['login'] = 'dentro';
+                
                     header("Location:".base_url.'home.php');
                 }
                 else{ //Registro fallido
@@ -76,12 +78,14 @@ class UsuarioController{
 
             $identificado = $usuario->login($email,$clave);
             // var_dump($identificado);
-            echo $identificado->usu_id.'<br>';
+            // echo $identificado->usu_id.'<br>';
             
             if($identificado->usu_id > 0){
                 $_SESSION['indetificado'] = $identificado;
                 $_SESSION['login'] = 'dentro';
                 header("Location:".base_url.'home.php');
+                var_dump($_SESSION['indetificado']);
+                // die();
             }
             else{
                 $_SESSION['error_login'] = 'fallido';
@@ -93,10 +97,21 @@ class UsuarioController{
 
     public function salir(){
 
+        if(isset($_SESSION['nombres'])){
+            Utilidad::eliminarSeccion('nombres');
+        }
+        
+        if(isset($_SESSION['login'])){
+            Utilidad::eliminarSeccion('login');
+        }
+
         if(isset($_SESSION['indetificado'])){
             Utilidad::eliminarSeccion('indetificado');
             Utilidad::eliminarSeccion('login');
             header("Location:".base_url);
+        }else{
+            header("Location:".base_url);
         }
+        header("Location:".base_url);
     }
 }

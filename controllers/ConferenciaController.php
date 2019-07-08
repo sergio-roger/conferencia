@@ -1,5 +1,7 @@
 <?php 
 
+require_once 'models/conferencia.php';
+
 class ConferenciaController{
 
     //para las vistas de reservas
@@ -14,4 +16,13 @@ class ConferenciaController{
     public function verReserva(){
         require_once 'views/reservas/ver_reserva.php';
     }
+
+    public function getConferencias(){
+        
+        $conferencia = new Conferencia();
+        $conferencias = $conferencia->getConferencias();
+
+        return $conferencias;
+    }
+     
 }

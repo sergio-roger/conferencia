@@ -112,7 +112,7 @@ header .detalle{
 header .dm{
     height: 100%;
     padding-top: 20px;
-    width: 100px;
+    width: 140px;
     border: 1px solid rgba(255,255,255,0.6);
     text-align: center;
     color: rgba(255,255,255,0.6);
@@ -154,8 +154,8 @@ section .seccion-1{
 }
 
 section .titulo{
-    margin-top: 20px;
-    margin-bottom: 45px;
+    margin-top: -15px;
+    margin-bottom: 40px;
 }
 
 section h2{

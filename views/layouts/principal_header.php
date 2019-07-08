@@ -46,7 +46,7 @@
           <div class="container ">
               <div class="row detalle">
                   <div class="col-12 col-sm-6 col-md-6 d-flex justify-content-center">
-                      <div class="dm">Julio 17</div>
+                      <div class="dm">Jueves 18 de Julio</div>
                       <div class="dm">Upse</div>
                   </div>
                   <div class="col-12 col-sm-6 col-md-6 d-flex justify-content-md-end adaptar justify-content-center">
@@ -96,3 +96,7 @@
         </div>
     </div>
       <!-- Modal -->
+    
+    <!-- Seccion de conferencias -->
+    <section id="conferencias">
+        <div class="container seccion-1">

@@ -118,16 +118,19 @@ class Usuario
     public function login($email, $clave){
         // Comprobar si existe el usuario
     
+        // $resultado;
         $sql = "SELECT * FROM `usuarios` WHERE usu_correo='{$email}'";
         $login = $this->db->query($sql);
 
         if($login && $login->num_rows == 1){
             $usuario = $login->fetch_object();  //Objeto que devuelve la base de datos
             
+            // var_dump($usuario);
+
             if(password_verify($clave, $usuario->usu_clave)){
-                $resultado = $usuario;
+               return $usuario;
             }
         }
-        return $resultado;
+        return $usuario;
     }
 }
