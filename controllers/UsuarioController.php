@@ -1,4 +1,5 @@
-<?php 
+<?php
+use Symfony\Component\Console\Helper\Helper;
 
 require_once 'models/usuario.php';
 
@@ -75,17 +76,27 @@ class UsuarioController{
 
             $identificado = $usuario->login($email,$clave);
             // var_dump($identificado);
+            echo $identificado->usu_id.'<br>';
             
-            if($identificado){
+            if($identificado->usu_id > 0){
                 $_SESSION['indetificado'] = $identificado;
+                $_SESSION['login'] = 'dentro';
                 header("Location:".base_url.'home.php');
             }
             else{
                 $_SESSION['error_login'] = 'fallido';
+
                 // Redireccionar a una pagina de datos y que vuevla a ingresar 
             }
-         
         }
+    }
 
+    public function salir(){
+
+        if(isset($_SESSION['indetificado'])){
+            Utilidad::eliminarSeccion('indetificado');
+            Utilidad::eliminarSeccion('login');
+            header("Location:".base_url);
+        }
     }
 }

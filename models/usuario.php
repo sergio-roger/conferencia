@@ -124,9 +124,6 @@ class Usuario
         if($login && $login->num_rows == 1){
             $usuario = $login->fetch_object();  //Objeto que devuelve la base de datos
             
-            // echo '<p>Clave de la bd: '.$usuario->usu_clave.'</p>';
-            // echo '<p>Clave sin cifrar: '.$clave.'</p>';
-            
             if(password_verify($clave, $usuario->usu_clave)){
                 $resultado = $usuario;
             }

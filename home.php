@@ -1,16 +1,21 @@
 <?php
+session_start();
+
 require_once 'autoload.php';
 require_once 'config/parametros.php';
 require_once 'helper/utilidad.php';
 
 require_once 'views/layouts/header.php';
 
-session_start();
-
 function MostrarError(){
     $error = new ErrorController();
     $error->index();
 }
+
+if(!isset($_SESSION['login'])){
+    header("Location:".base_url);    
+}
+
 
 if(isset($_GET['controller'])){
     $nombre_controlador = $_GET['controller'].'Controller';
@@ -46,3 +51,4 @@ else{
 
 require_once 'views/layouts/proyecto.php';
 require_once 'views/layouts/footer.php';
+
