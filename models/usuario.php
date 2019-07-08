@@ -1,5 +1,7 @@
 <?php
 
+require_once 'config/db.php';
+
 class Usuario
 {
     private $id;
@@ -12,6 +14,14 @@ class Usuario
     private $clave;
     private $creado;
     private $actualizado;
+    private $db;
+    
+   
+    public function __construct($creado)
+    {
+        $this->creado = $creado;
+        $this->db  = DataBase::Conectar();
+    }
 
     // Getters
     public function getId(){
@@ -60,19 +70,19 @@ class Usuario
     }
 
     public function setCedula($cedula){
-        $this->cedula = $cedula;
+        $this->cedula = $this->db->real_escape_string($cedula);
     }
 
     public function setNombre($nombre){
-        $this->nombre = $nombre;
+        $this->nombre = $this->db->real_escape_string($nombre);
     }
 
     public function setApellido($apellido){
-        $this->apellido = $apellido;
+        $this->apellido = $this->db->real_escape_string($apellido);
     }
 
     public function setCorreo($correo){
-        $this->correo = $correo;
+        $this->correo = $this->db->real_escape_string($correo);
     }
 
     public function setTipo($tipo){
@@ -84,10 +94,43 @@ class Usuario
     }
 
     public function setClave($clave){
-        $this->clave = $clave;
+        $this->clave = password_hash($this->db->real_escape_string($clave),PASSWORD_BCRYPT,['cost'=>4]);
     }
 
     public function setActualizado($actualizado){
         $this->actualizado = $actualizado;
+    }
+
+    public function guardar(){
+
+        $sql = "INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `usu_correo`, `usu_tipo`, `usu_sexo`, `usu_clave`, `created_at`, `updated_at`) VALUES ";
+        $sql = $sql."(NULL, '{$this->cedula}', '{$this->nombre}', '{$this->apellido}', '{$this->correo}', '{$this->tipo}', '{$this->sexo}', '{$this->clave}', '{$this->creado}', '{$this->creado}');";
+
+        $guardar = $this->db->query($sql);
+        $result = false; 
+
+        if($guardar){
+            $result = true;
+        }
+        return $result;
+    }
+
+    public function login($email, $clave){
+        // Comprobar si existe el usuario
+    
+        $sql = "SELECT * FROM `usuarios` WHERE usu_correo='{$email}'";
+        $login = $this->db->query($sql);
+
+        if($login && $login->num_rows == 1){
+            $usuario = $login->fetch_object();  //Objeto que devuelve la base de datos
+            
+            // echo '<p>Clave de la bd: '.$usuario->usu_clave.'</p>';
+            // echo '<p>Clave sin cifrar: '.$clave.'</p>';
+            
+            if(password_verify($clave, $usuario->usu_clave)){
+                $resultado = $usuario;
+            }
+        }
+        return $resultado;
     }
 }

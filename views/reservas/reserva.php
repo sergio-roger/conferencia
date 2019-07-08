@@ -1,5 +1,4 @@
-<div class="columna col-lg-8">
-    <div class="widget reservas">
+
         <h3 class="titulo">Realizar reservas</h3>
 
         <div class="combo row">
@@ -76,4 +75,3 @@
             </table> 
         
     </div>
-</div>

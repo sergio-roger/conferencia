@@ -3,6 +3,7 @@
 class HomeController{
 
     public function index(){
-        echo 'Controlador Home, Acción index';
+        //Renderizando vista
+        require_once 'views/reservas/entrada.php';
     }
 }

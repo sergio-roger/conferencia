@@ -1,15 +1,11 @@
 <?php
 require_once 'autoload.php';
 require_once 'config/parametros.php';
+require_once 'helper/utilidad.php';
 
 require_once 'views/layouts/header.php';
-// Incluir contenido dinamico
-require_once 'views/layouts/contenido.php';
-// require_once 'views/layouts/reserva.php';
-// require_once 'views/layouts/ver_reserva.php';
 
-require_once 'views/layouts/proyecto.php';
-require_once 'views/layouts/footer.php';
+session_start();
 
 function MostrarError(){
     $error = new ErrorController();
@@ -21,7 +17,8 @@ if(isset($_GET['controller'])){
 }
 elseif(!isset($_GET['controller'])){
     $nombre_controlador = Controller_default;
-    echo 'Controlador default';
+    // var_dump($_GET);
+    // echo $nombre_controlador;
 }
 else{
     // echo 'La pagina no existe';
@@ -36,8 +33,8 @@ else{
 		$controlador->$action();
     }
     elseif(!isset($_GET['controller']) && !isset($_GET['action'])){
-        // $default = action_default;
-        // $controlador->index();
+        $default = action_default;
+        $controlador->index();
         // Accion del controlador por default
     }
     else{
@@ -46,3 +43,6 @@ else{
 }else{
     MostrarError();
 }
+
+require_once 'views/layouts/proyecto.php';
+require_once 'views/layouts/footer.php';

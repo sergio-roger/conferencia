@@ -1,3 +1,6 @@
+    
+</div>
+
 <div class="columna col-lg-4">
     <div class="widget estadistica">
         <h3 class="titulo aside-titulo">Proyectos</h3>

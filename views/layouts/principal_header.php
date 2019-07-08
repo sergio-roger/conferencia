@@ -74,7 +74,7 @@
             <div class="modal-body">
               <div class="row">
                   <div class="col-12">
-                        <form action="">
+                        <form action="<?=base_url?>usuario/login" method="POST">
                             <label for="inicio-correo">Correo</label>
                             <input type="email" name="inicio-correo" placeholder="usuario@gmail.com"
                             required maxlength="100" class="form-control">

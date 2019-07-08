@@ -1,5 +1,20 @@
-    <!-- Formulario de Registro -->
-    <section class="form-p" id="formulario">
+   
+   <!-- Formulario de Registro -->
+   <section class="form-p" id="formulario">
+
+   <?php if(isset($_SESSION['registro']) && $_SESSION['registro'] == 'fallido'): ?>
+        <div class="container alerta-fallo-registro">
+            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                <strong>Registro fallido</strong> :(
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+   <?php endif; ?>
+
+
+
         <div class="container formulario">
             <div class="titulo text-center">
                 <h2>Formulario de Registro</h2>
@@ -10,8 +25,8 @@
                 class="row" method="POST">
                     <div class="col-12 col-sm-12 col-md-6">
                         <label for="cedula">* Cedula</label>
-                        <input type="text" required name="cedula" placeholder="Digite cedula" 
-                        maxlength="10" class="form-control">
+                        <input type="text" name="cedula" placeholder="Digite cedula" 
+                        maxlength="10" class="form-control" required>
         
                         <label for="nombre">* Nombre</label>
                         <input type="text" required name="nombre" placeholder="Digite nombre" 
