@@ -31,9 +31,16 @@ if(class_exists($nombre_controlador)){
        $controlador->$action();
    }
    elseif(!isset($_GET['controller']) && !isset($_GET['action'])){
+       // Accion del controlador por default
+
        $default = 'getConferencias';
        $_POST['conferencias'] = $controlador->$default();
-       // Accion del controlador por default
+
+       $proyecto = new ProyectoController();
+
+       if(!isset($_POST['proyectos'])){
+           $_POST['proyectos'] = $proyecto->getProyectos();
+       }
    }
    else{
        MostrarError();	
@@ -42,6 +49,7 @@ if(class_exists($nombre_controlador)){
    MostrarError();
 }
 require_once 'views/layouts/principal_conferencia.php';
+require_once 'views/layouts/principal_banner.php';
 require_once 'views/layouts/principal_proyecto.php';
 require_once 'views/layouts/formulario.php';
 require_once 'views/layouts/principal_footer.php';

@@ -10,6 +10,10 @@ class ConferenciaController{
     }
 
     public function reserva(){
+        
+        $conferencia = new Conferencia();
+        $conferencias = $conferencia->ObtenerTodos();
+
         require_once 'views/reservas/reserva.php';
     }
 

@@ -26,6 +26,7 @@
             <th scope="col">Tema</th>
             <th scope="col">Ponente</th>
             <th scope="col">Hora inicio</th>
+            <th scope="col">Estado</th>
             <th scope="col">Accion</th>
             </tr>
         </thead>
@@ -35,6 +36,7 @@
             <td>Róbotica</td>
             <td>Rubén FLores</td>
             <td>9:30:00</td>
+            <td>Confirmado</td>
             <td>
                 <button class="btn btn-danger">Eliminar
                     <i class="icon-cancel"></i>
@@ -46,6 +48,7 @@
             <td>Róbotica</td>
             <td>Rubén FLores</td>
             <td>9:30:00</td>
+            <td>Pendiente</td>
             <td>
                 <button class="btn btn-danger">Eliminar
                     <i class="icon-cancel"></i>
@@ -57,6 +60,7 @@
             <td>Róbotica</td>
             <td>Rubén FLores</td>
             <td>9:30:00</td>
+            <td>Confirmado</td>
             <td>
                 <button class="btn btn-danger">Eliminar
                     <i class="icon-cancel"></i>

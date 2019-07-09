@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="<?=base_url?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=base_url?>assets/css/fontello.css">
-    <link rel="stylesheet" href="<?=base_url?>assets/css/style.css">
+    <link rel="stylesheet" href="<?=base_url?>assets/css/style.css?v=1.1">
     <link rel="stylesheet" href="<?=base_url?>assets/css/responsive.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
                 <a href="#" class="item-menu">Inicio</a>
                 <a href="#conferencias" class="item-menu">Conferencias</a>
                 <a href="#proyectos" class="item-menu">Proyecto</a>
-                <a href="#">Cronograma</a>
+                <a href="#cronograma">Cronograma</a>
             </div>
           </nav>
         <!--  Menu de navegacion-->

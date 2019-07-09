@@ -1,4 +1,4 @@
-    
+
 </div>
 
 <div class="columna col-lg-4">
@@ -6,27 +6,13 @@
         <h3 class="titulo aside-titulo">Proyectos</h3>
         <div class="contenedor d-md-flex flex-lg-column">
             <!-- Dinamico -->
+            <?php while($proyecto =  $_POST['proyectos']->fetch_object()): ?>
             <div class="caja">
-                <h5>Tema de Proyecto</h5>
-                <span>Grupo</span>
-                <p>Pequeña reseña Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Numquam neque placeat consectetur! Laudantium nesciunt, unde exercitationem
-                </p>
+                <h5><?=$proyecto->tema?></h5>
+                <span><?=$proyecto->grupo?></span>
+                <p><?=$proyecto->descripcion?> </p>                
             </div>
-            <div class="caja">
-                <h5>Tema de Proyecto</h5>
-                <span>Grupo</span>
-                <p>Pequeña reseña Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Numquam neque placeat consectetur! Laudantium nesciunt, unde exercitationem
-                </p>
-            </div>
-            <div class="caja">
-                <h5>Tema de Proyecto</h5>
-                <span>Grupo</span>
-                <p>Pequeña reseña Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Numquam neque placeat consectetur! Laudantium nesciunt, unde exercitationem
-                </p>
-            </div>
+            <?php endwhile; ?>
         </div>
     </div>
 </div>

@@ -12,18 +12,28 @@ function MostrarError(){
     $error->index();
 }
 
-
 if(!isset($_SESSION['login'])){
     header("Location:".base_url);    
+}else{
+
+    if(!isset($_POST['proyectos'])){
+        $proyecto = new ProyectoController();
+        $_POST['proyectos'] = $proyecto->getProyectos();
+    }
+
+    if(!isset($_POST['usuario']) && isset($_SESSION['correo'])){
+        $usuario = new UsuarioController();
+        $_SESSION['usuario'] = $usuario->getUsuario($_SESSION['correo']);
+    }
 }
 
 if(isset($_GET['controller'])){
     $nombre_controlador = $_GET['controller'].'Controller';
 }
 elseif(!isset($_GET['controller'])){
-    $nombre_controlador = Controller_default;
-    // var_dump($_GET);
     // echo $nombre_controlador;
+    $nombre_controlador = Controller_default;
+    
 }
 else{
     // echo 'La pagina no existe';

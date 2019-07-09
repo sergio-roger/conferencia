@@ -1,6 +1,21 @@
 
-        <h3 class="titulo">Realizar reservas</h3>
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-6">
+                <h3 class="titulo">Realizar reservas</h3>
+            </div>
+            <!-- Dinámico -->
+            <div class="col-12 col-md-6 ">
+                <!-- <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>Asistencia Confirmada</strong> Correcto
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div> -->
+            </div>
+        </div>
 
+        <!-- <?=var_dump($conferencias);?> -->
+    
         <div class="combo row">
             <div class="col-12 col-sm-7 col-md-6">
                 <div class="form-group">
@@ -28,50 +43,36 @@
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Tema</th>
-                <th scope="col">Cupos</th>
-                <th scope="col">Ponente</th>
-                <th scope="col">Hora inicio</th>
+                <th scope="col" class="tabla-cupo">Cupos</th>
+                <th scope="col" class="tabla-ponente">Ponente</th>
+                <th scope="col">Inicio</th>
                 <th scope="col">Accion</th>
                 </tr>
             </thead>
             <tbody>
+
+            <?php while($conf = $conferencias->fetch_object()): ?>
                 <tr>
-                <th scope="row">1</th>
-                <td>Róbotica</td>
-                <td>40</td>
-                <td>Rubén FLores</td>
-                <td>9:30:00</td>
-                <td>
-                    <button class="asistir">Asistir
-                        <i class="icon-ok"></i>
-                    </button>
-                </td>
+                    <th scope="row"><?=$conf->id?></th>
+                    <td><?=$conf->tema?></td>
+                    <td class="tabla-cupo"><?=$conf->disponible?></td>
+                    <td class="tabla-ponente"><?=$conf->ponentes?></td>
+                    <td><?=$conf->hora?></td>
+                    <td>
+                        <button class="asistir">
+                         <a href="<?=base_url?>asistencia/guardar?id=<?=$conf->id?>">
+                             Asistir <i class="icon-ok"></i>
+                         </a>
+                            <!-- Ejecutar un método para hacer una reserva o asistencia -->
+                            <?php
+                                // $asistencia = new AsistenciaController();
+                                // $asistencia->index();
+                            ?>
+                        </button>
+                    </td>
                 </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Róbotica</td>
-                <td>40</td>
-                <td>Rubén FLores</td>
-                <td>9:30:00</td>
-                <td>
-                    <button class="asistir">Asistir
-                        <i class="icon-ok"></i>
-                    </button>
-                </td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Róbotica</td>
-                <td>40</td>
-                <td>Rubén FLores</td>
-                <td>9:30:00</td>
-                <td>
-                    <button class="asistir">Asistir
-                        <i class="icon-ok"></i>
-                    </button>
-                </td>
-                </tr>
+            <?php endwhile; ?>
+
             </tbody>
-            </table> 
-        
+        </table>      
     </div>

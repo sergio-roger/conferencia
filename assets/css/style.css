@@ -199,7 +199,7 @@ section h2{
 }
 
 .conferencia-caja .btn-reservar{
-    width: 50%;
+    width: 100%;
 }
 
 /* Banner */
@@ -309,4 +309,8 @@ footer .footer{
 
 .alerta-fallo-registro{
     padding-top: 20px;
+}
+
+.conferencia-detalle span{
+    padding-left: 15px;
 }

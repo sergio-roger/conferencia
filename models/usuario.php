@@ -25,6 +25,7 @@ class Usuario
 
     // Getters
     public function getId(){
+
         return $this->id;
     }
 
@@ -65,10 +66,6 @@ class Usuario
     }
 
     // Setters
-    public function setId($id){
-        $this->id = $id;
-    }
-
     public function setCedula($cedula){
         $this->cedula = $this->db->real_escape_string($cedula);
     }
@@ -117,20 +114,32 @@ class Usuario
 
     public function login($email, $clave){
         // Comprobar si existe el usuario
-    
         // $resultado;
+        $respuesta = false; 
         $sql = "SELECT * FROM `usuarios` WHERE usu_correo='{$email}'";
         $login = $this->db->query($sql);
 
         if($login && $login->num_rows == 1){
             $usuario = $login->fetch_object();  //Objeto que devuelve la base de datos
-            
-            // var_dump($usuario);
 
-            if(password_verify($clave, $usuario->usu_clave)){
-               return $usuario;
+            $resultado = password_verify($clave, $usuario->usu_clave);
+            
+            if($resultado){
+                $respuesta = $usuario;
             }
         }
-        return $usuario;
+        return $respuesta;
+    }
+
+    public function getUsuario($correo){
+        $respuesta = false; 
+        $sql = "SELECT * FROM `usuarios` WHERE usu_correo='{$correo}'";
+        $login = $this->db->query($sql);
+
+        if($login && $login->num_rows == 1){
+            $usuario = $login->fetch_object();  //Objeto que devuelve la base de datos
+            $respuesta = $usuario;
+        }
+        return $respuesta;
     }
 }

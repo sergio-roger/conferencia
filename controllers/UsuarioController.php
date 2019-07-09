@@ -42,6 +42,7 @@ class UsuarioController{
                 if($registro){//Registro completo
                     $_SESSION['registro'] = "completo";
                     $_SESSION['nombres'] = $usuario->getNombre().'  '.$usuario->getApellido();
+                    $_SESSION['correo'] = $usuario->getCorreo();
                     $_SESSION['login'] = 'dentro';
                 
                     header("Location:".base_url.'home.php');
@@ -65,33 +66,48 @@ class UsuarioController{
         }
     }
 
+    public function getUsuario($correo){
+        
+        $hoy = date("Y-m-d H:i:s");
+        $usuario = new Usuario($hoy);
+
+        $resultado = $usuario->getUsuario($correo); 
+        
+        if(isset($_SESSION['correo'])){
+            Utilidad::eliminarSeccion('correo');
+        }
+
+        return $resultado;
+
+    }
+
     public function login(){
 
         if(isset($_POST)){
             // Redireccionar al usuario
             //Consulta a la base de datos 
+
             $hoy = date("Y-m-d H:i:s");
+            // $identificado = false;
             $usuario = new Usuario($hoy);
                         
             $email = $_POST['inicio-correo'];
             $clave = $_POST['inicio-clave'];
 
             $identificado = $usuario->login($email,$clave);
-            // var_dump($identificado);
-            // echo $identificado->usu_id.'<br>';
             
             if($identificado->usu_id > 0){
-                $_SESSION['indetificado'] = $identificado;
                 $_SESSION['login'] = 'dentro';
+                $_SESSION['indetificado'] = $identificado;
                 header("Location:".base_url.'home.php');
-                var_dump($_SESSION['indetificado']);
-                // die();
             }
-            else{
+            
+            if(!$identificado){
                 $_SESSION['error_login'] = 'fallido';
-
+                header("Location:".base_url.'/errorlogin.php');
                 // Redireccionar a una pagina de datos y que vuevla a ingresar 
             }
+            // var_dump($identificado);
         }
     }
 
@@ -103,6 +119,14 @@ class UsuarioController{
         
         if(isset($_SESSION['login'])){
             Utilidad::eliminarSeccion('login');
+        }
+
+        if(isset($_SESSION['usuario'])){
+            Utilidad::eliminarSeccion('usuario');
+        }
+
+        if(isset($_POST['proyectos'])){
+            Utilidad::eilminarPost('proyectos');
         }
 
         if(isset($_SESSION['indetificado'])){

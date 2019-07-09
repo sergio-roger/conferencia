@@ -20,9 +20,11 @@
 <h3 class="titulo">Bienvenido</h3>              <!---Comienzo del contenido central -->
 
         <?php if(isset($_SESSION['indetificado'])): ?>
+                 <span>ID: <?=$_SESSION['indetificado']->usu_id?></span>
                 <h5><?=$_SESSION['indetificado']->usu_nombre?>   <?=$_SESSION['indetificado']->usu_apellido?></h5>
-        <?php elseif(isset($_SESSION['nombres'])): ?>
-                <h5><?=$_SESSION['nombres']?></h5>
+        <?php elseif(isset($_SESSION['usuario'])) : ?>
+                <span>ID: <?=$_SESSION['usuario']->usu_id?></span>
+                <h5><?=$_SESSION['usuario']->usu_nombre?> <?=$_SESSION['usuario']->usu_apellido?></h5>
         <?php endif;?>
 
         <p>N° Reservas <span>12</span></p>

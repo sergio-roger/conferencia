@@ -9,7 +9,7 @@ CREATE TABLE Usuarios(
     usu_correo varchar(100) null,
     usu_tipo varchar(12) null,
     usu_sexo char(1) null,
-    usu_clave varchar(25) null,
+    usu_clave varchar(255) null,
     created_at datetime DEFAULT null,
     updated_at datetime DEFAULT null 
 )ENGINE=INNODB;
