@@ -41,12 +41,12 @@ class AsistenciaController{
 
         $aux = (int)$laboratorio->capacidad * (int)$laboratorio->desborde;
         $desborde = ((int)($aux/100));
+        $desborde = $desborde + (int)$laboratorio->capacidad;
 
         if($conferencia->cupos < $laboratorio->capacidad){
             //Estado mandar confirmado
             $estado = 'confirmado';
             $_SESSION['alerta'] = 'alert-success';
-            
 
             $objconf->actualizarCupos($conferencia->id);
             $asistencia->guardar($conferencia, 0, $estado); 
