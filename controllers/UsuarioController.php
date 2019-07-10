@@ -9,10 +9,6 @@ class UsuarioController{
         // echo '<h1>Controlador Usuario, Acción index</h1>';
     }
 
-    public function registro(){
-
-    }
-
     public function guardar(){
         //Si se registro iniciar seccion y luego redirecionar a la home.php
 
@@ -107,7 +103,6 @@ class UsuarioController{
                 header("Location:".base_url.'/errorlogin.php');
                 // Redireccionar a una pagina de datos y que vuevla a ingresar 
             }
-            // var_dump($identificado);
         }
     }
 
@@ -123,6 +118,10 @@ class UsuarioController{
 
         if(isset($_SESSION['usuario'])){
             Utilidad::eliminarSeccion('usuario');
+        }
+
+        if(isset($_SESSION['alerta'])){
+            Utilidad::eliminarSeccion('alerta');
         }
 
         if(isset($_POST['proyectos'])){

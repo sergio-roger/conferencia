@@ -19,4 +19,9 @@ class Utilidad{
             unset($_POST[$nombre]);
         }
     }
+
+    public static function fechaActual(){
+        $hoy = date("Y-m-d H:i:s");
+        return $hoy;
+    }
 }

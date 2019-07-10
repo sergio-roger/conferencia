@@ -142,4 +142,22 @@ class Usuario
         }
         return $respuesta;
     }
+
+    public function getConferenciasUsuario($id){
+        $sql="SELECT 
+        conf_id as id,
+        conf_tema as tema,
+        conf_descripcion as descripcion,
+        conf_area as area,
+        conf_cupos as cupos,
+        (SELECT Concat(pon_nombre,' ',pon_apellido) from  `ponentes` WHERE  `conferencias`.`pon_id`=`ponentes`.`pon_id`) as ponentes,
+        (SELECT lab_nombre from `laboratorios` where `conferencias`.`lab_id` = `laboratorios`.`lab_id`)as lugar,
+        (SELECT hor_inicio from `horarios` WHERE `conferencias`.`hor_id` = `horarios`.`hor_id`) as hora,
+        (SELECT (lab_capacidad - conf_cupos)from `laboratorios` where `conferencias`.`lab_id` = `laboratorios`.`lab_id`) as disponible
+        FROM `conferencias`";
+        
+        $conferencias = $this->db->query($sql);
+
+        return $conferencias;
+    }
 }

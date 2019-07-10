@@ -79,7 +79,7 @@ class Conferencia{
         
         $resultado = false;
         $sql="SELECT conf_id as id, conf_tema as tema, conf_descripcion as descripcion,
-        conf_area as area, pon_id, lab_id, hor_id
+        conf_area as area, pon_id, lab_id, hor_id, conf_cupos as cupos
         FROM `conferencias` 
         WHERE `conferencias`.`conf_id` = {$id}";
         
@@ -87,10 +87,8 @@ class Conferencia{
 
         if($conferencia && $conferencia->num_rows == 1){
             $conf = $conferencia->fetch_object();  //Objeto que devuelve la base de datos
-
             $resultado = $conf;
-        }
-        
+        }    
         // var_dump($resultado);
         return $resultado;
     }
@@ -112,6 +110,13 @@ class Conferencia{
         $this->disponibles = $disponibles;
     }
 
+    public function actualizarCupos($id){
+        $sql = "CALL actualizaCupos( $id );";
+        $resultado = $this->db->query($sql);
+
+        return $resultado;
+    }
+
     public function ObtenerTodos(){
         $sql="SELECT 
         conf_id as id,
@@ -124,7 +129,7 @@ class Conferencia{
         (SELECT hor_inicio from `horarios` WHERE `conferencias`.`hor_id` = `horarios`.`hor_id`) as hora,
         (SELECT (lab_capacidad - conf_cupos)from `laboratorios` where `conferencias`.`lab_id` = `laboratorios`.`lab_id`) as disponible
         FROM `conferencias`";
-         
+        
         $conferencias = $this->db->query($sql);
 
         return $conferencias;
