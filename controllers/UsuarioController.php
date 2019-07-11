@@ -106,6 +106,7 @@ class UsuarioController{
         }
     }
 
+    
     public function salir(){
 
         if(isset($_SESSION['nombres'])){

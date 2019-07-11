@@ -38,8 +38,6 @@
                 <?php endif;?>
             </div>
         </div>
-
-        <!-- <?=var_dump($conferencias);?> -->
     
         <div class="combo row">
             <div class="col-12 col-sm-7 col-md-6">

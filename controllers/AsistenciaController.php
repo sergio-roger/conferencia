@@ -1,9 +1,11 @@
 <?php
 
+require_once 'config/parametros.php';
 require_once 'models/laboratorio.php';
 require_once 'models/conferencia.php';
 require_once 'models/asistencia.php';
-require_once 'config/parametros.php';
+require_once 'models/ponente.php';
+require_once 'models/horario.php';
 
 class AsistenciaController{
 
@@ -29,7 +31,12 @@ class AsistenciaController{
         $objetLaboratorio = new Laboratorio();
         $asistencia = new Asistencia();
         $objconf = new Conferencia();
-        
+        $objetoponente = new Ponente();
+        $objetoHorario = new Horario();
+
+        $ponente = $objetoponente->getPonente($conferencia->pon_id);
+        $horario = $objetoHorario->getHorario($conferencia->hor_id);
+
         $laboratorio = $objetLaboratorio->getlaboratorio($conferencia->lab_id);
         $estado = '';
         $usuario = '';
@@ -43,17 +50,19 @@ class AsistenciaController{
         $desborde = ((int)($aux/100));
         $desborde = $desborde + (int)$laboratorio->capacidad;
 
-        if($conferencia->cupos < $laboratorio->capacidad){
+        if($conferencia->cupos >= 0 &&  $conferencia->cupos < $laboratorio->capacidad ){
+            
             //Estado mandar confirmado
             $estado = 'confirmado';
             $_SESSION['alerta'] = 'alert-success';
-
+            
             $objconf->actualizarCupos($conferencia->id);
             $asistencia->guardar($conferencia, 0, $estado); 
             $ultimoAsistencia = $asistencia->ultimoRegistro();
-            $asistencia->guardar_UsuarioAsistencia($usuario->usu_id,$ultimoAsistencia->id);           
+            $asistencia->guardar_UsuarioAsistencia($usuario->usu_id,$ultimoAsistencia->id, $ponente->id, $horario->id);           
         }
-        elseif($conferencia->cupos >= $laboratorio->capacidad || $conferencia->cupos < $desborde){
+        elseif($conferencia->cupos >= $laboratorio->capacidad && $conferencia->cupos < $desborde){
+          
             //Operar con el desborde y mandar pendiente
             $prioridad = $conferencia->cupos - $laboratorio->capacidad + 1;
 
@@ -64,7 +73,7 @@ class AsistenciaController{
             $objconf->actualizarCupos($conferencia->id);
             $asistencia->guardar($conferencia,$prioridad,$estado);
             $ultimoAsistencia = $asistencia->ultimoRegistro();
-            $asistencia->guardar_UsuarioAsistencia($usuario->usu_id,$ultimoAsistencia->id);           
+            $asistencia->guardar_UsuarioAsistencia($usuario->usu_id,$ultimoAsistencia->id, $ponente->id, $horario->id);           
         }
         else{
             $_SESSION['alerta'] = 'alert-danger';
@@ -72,5 +81,6 @@ class AsistenciaController{
 
         header("Location:".base_url.'/conferencia/reserva');
         // die();
+    
     }
 }

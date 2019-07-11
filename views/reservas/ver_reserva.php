@@ -1,4 +1,7 @@
-
+<?php
+//var_dump($detalles->fetch_object());
+//die();
+?>
     <h3 class="titulo">Realizar reservas</h3>
 
     <div class="combo row">
@@ -22,51 +25,35 @@
     <table class="table table-sm table-hover">
         <thead class="thead-dark">
             <tr>
-            <th scope="col">#</th>
+            <!-- <th scope="col">#</th> -->
             <th scope="col">Tema</th>
             <th scope="col">Ponente</th>
-            <th scope="col">Hora inicio</th>
+            <th scope="col">Inicio</th>
             <th scope="col">Estado</th>
             <th scope="col">Accion</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Róbotica</td>
-            <td>Rubén FLores</td>
-            <td>9:30:00</td>
-            <td>Confirmado</td>
-            <td>
-                <button class="btn btn-danger">Eliminar
-                    <i class="icon-cancel"></i>
-                </button>
-            </td>
+
+        <?php while($item = $detalles->fetch_object()): ?>
+
+        <?php if($item->estado == 'confirmado'): ?>
+        <tr>
+        <?php else:?>
+        <tr class="table-warning">
+        <?php endif; ?>
+                <!-- <th scope="row">1</th> -->
+                <td><?=$item->tema?></td>
+                <td><?=$item->ponente?></td>
+                    <td><?=$item->inicio?></td>
+                    <td><?=$item->estado?></td>
+                <td>
+                    <button class="btn btn-danger">
+                        <i class="icon-cancel"></i>
+                    </button>
+                </td>
             </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Róbotica</td>
-            <td>Rubén FLores</td>
-            <td>9:30:00</td>
-            <td>Pendiente</td>
-            <td>
-                <button class="btn btn-danger">Eliminar
-                    <i class="icon-cancel"></i>
-                </button>
-            </td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Róbotica</td>
-            <td>Rubén FLores</td>
-            <td>9:30:00</td>
-            <td>Confirmado</td>
-            <td>
-                <button class="btn btn-danger">Eliminar
-                    <i class="icon-cancel"></i>
-                </button>
-            </td>
-            </tr>
+            <?php endwhile; ?>
         </tbody>
     </table> 
     

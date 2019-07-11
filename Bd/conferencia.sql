@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-07-2019 a las 13:22:47
+-- Tiempo de generación: 10-07-2019 a las 22:44:01
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -55,19 +55,15 @@ CREATE TABLE `asistencias` (
 --
 
 INSERT INTO `asistencias` (`asi_id`, `conf_id`, `asi_confirmacion`, `asi_prioridad`, `asi_estado`, `created_at`, `updated_at`) VALUES
-(51, 1, 1, 0, 'confirmado', '2019-07-09 22:30:41', '2019-07-09 22:30:41'),
-(52, 5, 0, 1, 'pendiente', '2019-07-09 22:42:29', '2019-07-09 22:42:29'),
-(56, 8, 1, 0, 'confirmado', '2019-07-09 23:17:12', '2019-07-09 23:17:12'),
-(57, 5, 0, 2, 'pendiente', '2019-07-09 23:19:35', '2019-07-09 23:19:35'),
-(58, 9, 1, 0, 'confirmado', '2019-07-09 23:20:33', '2019-07-09 23:20:33'),
-(59, 9, 1, 0, 'confirmado', '2019-07-09 23:21:52', '2019-07-09 23:21:52'),
-(60, 4, 1, 0, 'confirmado', '2019-07-09 23:22:44', '2019-07-09 23:22:44'),
-(61, 6, 1, 0, 'confirmado', '2019-07-09 23:22:57', '2019-07-09 23:22:57'),
-(62, 2, 1, 0, 'confirmado', '2019-07-09 23:26:19', '2019-07-09 23:26:19'),
-(63, 1, 1, 0, 'confirmado', '2019-07-10 13:17:44', '2019-07-10 13:17:44'),
-(64, 1, 1, 0, 'confirmado', '2019-07-10 13:17:53', '2019-07-10 13:17:53'),
-(65, 5, 0, 3, 'pendiente', '2019-07-10 13:18:28', '2019-07-10 13:18:28'),
-(66, 5, 0, 4, 'pendiente', '2019-07-10 13:18:43', '2019-07-10 13:18:43');
+(76, 1, 1, 0, 'confirmado', '2019-07-10 19:57:22', '2019-07-10 19:57:22'),
+(77, 1, 1, 0, 'confirmado', '2019-07-10 19:57:22', '2019-07-10 19:57:22'),
+(78, 2, 1, 0, 'confirmado', '2019-07-10 20:57:39', '2019-07-10 20:57:39'),
+(79, 6, 0, 1, 'pendiente', '2019-07-10 20:58:30', '2019-07-10 20:58:30'),
+(80, 9, 1, 0, 'confirmado', '2019-07-10 20:58:46', '2019-07-10 20:58:46'),
+(81, 8, 1, 0, 'confirmado', '2019-07-10 22:07:08', '2019-07-10 22:07:08'),
+(82, 6, 0, 2, 'pendiente', '2019-07-10 22:07:12', '2019-07-10 22:07:12'),
+(83, 4, 1, 0, 'confirmado', '2019-07-10 22:16:40', '2019-07-10 22:16:40'),
+(84, 9, 1, 0, 'confirmado', '2019-07-10 22:42:14', '2019-07-10 22:42:14');
 
 -- --------------------------------------------------------
 
@@ -91,15 +87,42 @@ CREATE TABLE `conferencias` (
 --
 
 INSERT INTO `conferencias` (`conf_id`, `conf_tema`, `conf_descripcion`, `conf_area`, `conf_cupos`, `pon_id`, `lab_id`, `hor_id`) VALUES
-(1, 'Estudio de escenarios de derrame de hidrocarburos en el medio marino ', NULL, 'Física', 3, 1, 1, 1),
+(1, 'Estudio de escenarios de derrame de hidrocarburos en el medio marino ', NULL, 'Física', 2, 1, 1, 1),
 (2, 'Desarrollo de robots submarinos para exploración Antártica', NULL, 'Telecomunicaciones', 1, 2, 1, 3),
 (4, 'Inteligencia articial y sus aplicaciones en la investigación cientíca', NULL, 'Software', 1, 4, 1, 7),
-(5, 'Técnicas de reconocimiento facial con Machine Learning', NULL, 'Seguridad Informática', 24, 5, 2, 2),
-(6, 'Ciberseguridad: tendencias y amenazas', NULL, 'Seguridad Informática', 1, 6, 2, 4),
+(5, 'Técnicas de reconocimiento facial con Machine Learning', NULL, 'Seguridad Informática', 0, 5, 2, 2),
+(6, 'Ciberseguridad: tendencias y amenazas', NULL, 'Seguridad Informática', 22, 6, 2, 4),
 (7, 'Aquacultura offshore', NULL, 'Física', 0, 7, 2, 6),
 (8, 'Modelado de celdas solares', NULL, 'Física', 1, 8, 3, 2),
 (9, 'Nanotecnología', NULL, 'Otras', 2, 9, 3, 4),
 (10, 'Ecuador en la Antártida', NULL, 'Otras', 0, 3, 1, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_asistencia`
+--
+
+CREATE TABLE `detalle_asistencia` (
+  `usu_id` int(255) NOT NULL,
+  `asi_id` int(255) NOT NULL,
+  `hor_id` int(255) NOT NULL,
+  `pon_id` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `detalle_asistencia`
+--
+
+INSERT INTO `detalle_asistencia` (`usu_id`, `asi_id`, `hor_id`, `pon_id`) VALUES
+(7, 76, 1, 1),
+(10, 78, 3, 2),
+(10, 79, 4, 6),
+(10, 80, 4, 9),
+(12, 81, 2, 8),
+(12, 82, 4, 6),
+(10, 83, 7, 4),
+(8, 84, 4, 9);
 
 -- --------------------------------------------------------
 
@@ -330,37 +353,27 @@ INSERT INTO `usuarios` (`usu_id`, `usu_cedula`, `usu_nombre`, `usu_apellido`, `u
 (7, '2400000000', 'Sergio', 'Floreano', 'sergio@gmail.com', '', 'M', '$2y$04$TrXDQ4mfpGK6u5Q3JNF5feE.DMturlU8BTmKU.1K9rh15w7OUXNcq', '2019-07-08 12:08:52', '2019-07-08 12:08:52'),
 (8, '2324300000', 'Lucero', 'López Méndez', 'lucero@gmail.com', '', 'F', '$2y$04$o0.QQrDOWAfaKepesz8yHuKX4/r.PZbWtlso2ocNBah1cSCHGIJZm', '2019-07-09 00:46:04', '2019-07-09 00:46:04'),
 (9, '2334444444', 'Sebastian', 'Alejandro Matias', 'sebastian@gmail.com', '', 'M', '$2y$04$SedlWsR5y.tSfDfKKI54ee7Rbi/BKUmwLvjQoGpi0VzFwaLttzQa.', '2019-07-09 01:08:21', '2019-07-09 01:08:21'),
-(10, '2323423423', 'Karina', 'De la Cruz Viteri', 'karina@gmail.com', '', 'M', '$2y$04$rohO1WQgl250X9oiDGkEkOawuMW0kUNB/DQHFSP4vo6JEs7A25fOm', '2019-07-09 01:10:46', '2019-07-09 01:10:46');
+(10, '2323423423', 'Karina', 'De la Cruz Viteri', 'karina@gmail.com', '', 'M', '$2y$04$rohO1WQgl250X9oiDGkEkOawuMW0kUNB/DQHFSP4vo6JEs7A25fOm', '2019-07-09 01:10:46', '2019-07-09 01:10:46'),
+(11, '2343000000', 'Paulo', 'Londra', 'sergio@gmail.com', '', 'M', '$2y$04$l48NI220kwdjkseWS4i0oekhd5Wx5Rj5FGhj7S6bZF6zoRMk9Si96', '2019-07-10 22:06:26', '2019-07-10 22:06:26'),
+(12, '2343243333', 'Paulo', 'Londra', 'paulo@gmail.com', '', 'M', '$2y$04$KkcVYAVnlSkOf1/iAsPEIOLrFSvUbyOxxlRPZLPcEBQjyGnymxoW6', '2019-07-10 22:07:00', '2019-07-10 22:07:00');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usu_asis`
+-- Estructura Stand-in para la vista `viewconferencias`
+-- (Véase abajo para la vista actual)
 --
+CREATE TABLE `viewconferencias` (
+);
 
-CREATE TABLE `usu_asis` (
-  `usu_id` int(255) NOT NULL,
-  `asi_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `usu_asis`
+-- Estructura para la vista `viewconferencias`
 --
+DROP TABLE IF EXISTS `viewconferencias`;
 
-INSERT INTO `usu_asis` (`usu_id`, `asi_id`) VALUES
-(7, 51),
-(7, 52),
-(7, 56),
-(10, 57),
-(10, 58),
-(8, 59),
-(8, 60),
-(8, 61),
-(7, 62),
-(7, 63),
-(7, 64),
-(7, 65),
-(7, 66);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewconferencias`  AS  select (select `conferencias`.`conf_tema` from `conferencias` where (`conferencias`.`conf_id` = (select `asistencias`.`conf_id` from `asistencias` where (`asistencias`.`asi_id` = `usu_asis`.`asi_id`) limit 1))) AS `tema`,`usu_asis`.`usu_id` AS `usu_id`,`usu_asis`.`asi_id` AS `asi_id` from `usu_asis` ;
 
 --
 -- Índices para tablas volcadas
@@ -381,6 +394,15 @@ ALTER TABLE `conferencias`
   ADD KEY `fk_ponente_conferencia` (`pon_id`),
   ADD KEY `fk_laboratorio_conferencia` (`lab_id`),
   ADD KEY `fk_horario_conferencia` (`hor_id`);
+
+--
+-- Indices de la tabla `detalle_asistencia`
+--
+ALTER TABLE `detalle_asistencia`
+  ADD KEY `fk_da_usuario` (`usu_id`),
+  ADD KEY `fk_da_asistencias` (`asi_id`),
+  ADD KEY `fk_da_hora` (`hor_id`),
+  ADD KEY `fk_da_ponente` (`pon_id`);
 
 --
 -- Indices de la tabla `encargados`
@@ -441,13 +463,6 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`usu_id`);
 
 --
--- Indices de la tabla `usu_asis`
---
-ALTER TABLE `usu_asis`
-  ADD KEY `fk_usu_asi_usuario` (`usu_id`),
-  ADD KEY `fk_usu_asi_asistencias` (`asi_id`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -455,7 +470,7 @@ ALTER TABLE `usu_asis`
 -- AUTO_INCREMENT de la tabla `asistencias`
 --
 ALTER TABLE `asistencias`
-  MODIFY `asi_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `asi_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT de la tabla `conferencias`
@@ -515,7 +530,7 @@ ALTER TABLE `proyectos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usu_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `usu_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
@@ -534,6 +549,15 @@ ALTER TABLE `conferencias`
   ADD CONSTRAINT `fk_horario_conferencia` FOREIGN KEY (`hor_id`) REFERENCES `horarios` (`hor_id`),
   ADD CONSTRAINT `fk_laboratorio_conferencia` FOREIGN KEY (`lab_id`) REFERENCES `laboratorios` (`lab_id`),
   ADD CONSTRAINT `fk_ponente_conferencia` FOREIGN KEY (`pon_id`) REFERENCES `ponentes` (`pon_id`);
+
+--
+-- Filtros para la tabla `detalle_asistencia`
+--
+ALTER TABLE `detalle_asistencia`
+  ADD CONSTRAINT `fk_da_asistencias` FOREIGN KEY (`asi_id`) REFERENCES `asistencias` (`asi_id`),
+  ADD CONSTRAINT `fk_da_hora` FOREIGN KEY (`hor_id`) REFERENCES `horarios` (`hor_id`),
+  ADD CONSTRAINT `fk_da_ponente` FOREIGN KEY (`pon_id`) REFERENCES `ponentes` (`pon_id`),
+  ADD CONSTRAINT `fk_da_usuario` FOREIGN KEY (`usu_id`) REFERENCES `usuarios` (`usu_id`);
 
 --
 -- Filtros para la tabla `encargados`
@@ -558,13 +582,6 @@ ALTER TABLE `moderador`
 --
 ALTER TABLE `proyectos`
   ADD CONSTRAINT `fk_grupo_proyecto` FOREIGN KEY (`grup_id`) REFERENCES `grupos` (`grup_id`);
-
---
--- Filtros para la tabla `usu_asis`
---
-ALTER TABLE `usu_asis`
-  ADD CONSTRAINT `fk_usu_asi_asistencias` FOREIGN KEY (`asi_id`) REFERENCES `asistencias` (`asi_id`),
-  ADD CONSTRAINT `fk_usu_asi_usuario` FOREIGN KEY (`usu_id`) REFERENCES `usuarios` (`usu_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -86,11 +86,15 @@ Create table Asistencias(
     
 )ENGINE=INNODB;
 
-CREATE TABLE Usu_asis(
+CREATE TABLE detalle_asistencia(
     usu_id int(255) not null,
     asi_id int(255) not null,
-    CONSTRAINT fk_usu_asi_usuario FOREIGN KEY(usu_id) REFERENCES Usuarios(usu_id),
-    CONSTRAINT fk_usu_asi_asistencias FOREIGN KEY(asi_id) REFERENCES Asistencias(asi_id)
+    hor_id int(255) not null,
+    pon_id int(255) not null,
+    CONSTRAINT fk_da_usuario FOREIGN KEY(usu_id) REFERENCES Usuarios(usu_id),
+    CONSTRAINT fk_da_asistencias FOREIGN KEY(asi_id) REFERENCES Asistencias(asi_id),
+    CONSTRAINT fk_da_hora FOREIGN KEY (hor_id) REFERENCES horarios(hor_id),
+    CONSTRAINT fk_da_ponente FOREIGN KEY (pon_id) REFERENCES ponentes(pon_id)
 )ENGINE=INNODB;
 
 #Parte de los proyectos y los grupos con sus integrantes 
@@ -182,3 +186,7 @@ INSERT INTO `integrantes` (`int_id`, `int_nombre`, `int_apellido`, `int_curso`, 
 #Proyectos
 INSERT INTO `proyectos` (`pro_id`, `pro_tema`, `pro_descripcion`, `grup_id`) VALUES (NULL, 'La tecnología aplicada a la medicina', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae illum ex laborum voluptates cum? Sapiente inventore nihil rem? Dolorem nisi quod sint reprehenderit libero recusandae expedita fugit debitis corporis enim.', '1');
 INSERT INTO `proyectos` (`pro_id`, `pro_tema`, `pro_descripcion`, `grup_id`) VALUES (NULL, 'La robótica y su utilitdad', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem omnis illo aspernatur suscipit aperiam dolore a veritatis autem doloribus pariatur nihil fugit odio laborum voluptatum, deleniti quod nostrum sit eaque?', '2');
+
+
+
+
