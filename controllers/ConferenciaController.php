@@ -31,8 +31,15 @@ class ConferenciaController{
     public function verReserva(){
 
         $detalles = $this->getDetalle();
-        $usuario = $this->obtenerUsuario();
+        $usuario = false; 
 
+        if(isset($_SESSION['indetificado'])){
+            $usuario = $_SESSION['indetificado'];
+        }
+        elseif(isset($_SESSION['usuario'])){
+            $usuario = $_SESSION['usuario'];
+        }
+        
         require_once 'views/reservas/ver_reserva.php';
     }
 
