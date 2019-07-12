@@ -108,6 +108,7 @@ class Asistencia
 
     public function getDetalleConferencia($id_usuario){
        $sql="select 
+	   (select conf_id from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`) as id,
        (select conf_tema from `conferencias` 
        where `conferencias`.`conf_id` = (select conf_id from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`)) as tema,
        (select Concat(pon_nombre,' ',pon_apellido ) from `ponentes` WHERE `ponentes`.`pon_id` = `detalle_asistencia`.`pon_id`) as ponente,

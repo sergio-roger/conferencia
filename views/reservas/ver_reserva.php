@@ -34,7 +34,7 @@
             </tr>
         </thead>
         <tbody>
-
+    
         <?php while($item = $detalles->fetch_object()): ?>
 
         <?php if($item->estado == 'confirmado'): ?>

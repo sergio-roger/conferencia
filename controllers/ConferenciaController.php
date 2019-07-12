@@ -14,6 +14,12 @@ class ConferenciaController{
         
         $conferencia = new Conferencia();
         $conferencias = $conferencia->ObtenerTodos();
+        $asistidas = $this->getDetalle();
+
+        $dataConferencia = $this->ToArrayConferencia($conferencias);
+        $dataDetalle = $this->ToArrayDetalle($asistidas);
+
+        $lista =  $this->listaDepurada($dataConferencia, $dataDetalle);
 
         require_once 'views/reservas/reserva.php';
     }
@@ -50,5 +56,45 @@ class ConferenciaController{
         }    
 
         return $listaDetalles;
+    }
+
+    public function ToArrayConferencia($arrayConferencias){
+
+        $dataConferencia = array();
+
+        while($r = $arrayConferencias->fetch_object()){
+            $dataConferencia[] = $r;
+        }
+        return $dataConferencia;
+    }
+
+    public function ToArrayDetalle($arrayDetalles){
+
+        $dataDetalle = array();
+
+        while($item = $arrayDetalles->fetch_object()){
+            $dataDetalle[] = $item;
+        }
+        return $dataDetalle;
+    }
+
+    public function listaDepurada($arrayConferencias, $arrayDetalles){
+
+        $lista = array();
+
+        for($i = 0; $i < count($arrayConferencias); $i++){
+            for($j = 0; $j < count($arrayDetalles); $j++){
+                    if($arrayConferencias[$i]->id == $arrayDetalles[$j]->id){
+                        $arrayConferencias[$i]->id = 0;
+                    }
+            }
+        }
+        
+        for($i = 0; $i < count($arrayConferencias); $i++){
+            if($arrayConferencias[$i]->id != 0){
+                $lista[] = $arrayConferencias[$i];
+            }
+        }
+        return $lista;
     }
 }

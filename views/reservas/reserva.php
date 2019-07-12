@@ -35,7 +35,7 @@
                         ?>
                     </button>
                 </div>
-                <?php endif;?>
+                <?php endif; ?>
             </div>
         </div>
     
@@ -74,34 +74,34 @@
             </thead>
             <tbody>
 
-            <?php while($conf = $conferencias->fetch_object()): ?>
-                <tr>
-                    <th scope="row"><?=$conf->id?></th>
-                    <td><?=$conf->tema?></td>
-                    <td class="tabla-cupo"><?php
-                        if($conf->disponible >= 0)
-                            echo $conf->disponible;
-                        else {
-                            echo '0';
-                        }
-                    ?></td>
-                    <td class="tabla-ponente"><?=$conf->ponentes?></td>
-                    <td><?=$conf->hora?></td>
-                    <td>
-                        <button class="asistir">
-                         <a href="<?=base_url?>asistencia/guardar?id=<?=$conf->id?>">
-                             Asistir <i class="icon-ok"></i>
-                         </a>
-                            <!-- Ejecutar un método para hacer una reserva o asistencia -->
-                            <?php
-                                // $asistencia = new AsistenciaController();
-                                // $asistencia->index();
-                            ?>
-                        </button>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
-
+            <?php for($i = 0; $i < count($lista); $i++): ?>
+                    <tr>
+                        <th scope="row"><?=$lista[$i]->id?></th>
+                        <td><?=$lista[$i]->tema?></td>
+                        <td class="tabla-cupo"><?php
+                            if($lista[$i]->disponible >= 0)
+                                echo $lista[$i]->disponible;
+                            else {
+                                echo '0';
+                            }
+                        ?></td>
+                        <td class="tabla-ponente"><?=$lista[$i]->ponentes?></td>
+                        <td><?=$lista[$i]->hora?></td>
+                        <td>
+                        <button class="asistir" >
+                            <a href="<?=base_url?>asistencia/guardar?id=<?=$lista[$i]->id?>" class="" 
+                            id="aisitir-<?php echo 'ok' ?>">
+                                Asistir <i class="icon-ok"></i>
+                            </a>
+                                <!-- Ejecutar un método para hacer una reserva o asistencia -->
+                                <?php
+                                    // $asistencia = new AsistenciaController();
+                                    // $asistencia->index();
+                                ?>
+                            </button>
+                        </td>
+                    </tr>
+            <?php endfor; ?>
             </tbody>
         </table>      
     </div>

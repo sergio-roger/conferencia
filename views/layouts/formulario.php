@@ -68,6 +68,6 @@
     <footer>
       <div class="footer container text-center p-3">
           <p>Todo los derechos &copy; reservados</p>
-          <p>Desarrollado por <a href="#">Sergio Roger</a></p>   
+          <p>Desarrollado por <a href="https://www.facebook.com/sergioroger2704" target="_blank">Sergio Roger</a></p>   
       </div> 
     </footer>

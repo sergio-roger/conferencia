@@ -50,7 +50,7 @@ class Proyecto {
         pro_tema as tema,
         pro_descripcion as descripcion,
         (SELECT grup_nombre from `grupos` where`grupos`.`grup_id` = `proyectos`.`grup_id` ) as grupo
-        FROM `proyectos` limit 3";
+        FROM `proyectos` limit 4";
          
         $conferencias = $this->db->query($sql);
 
