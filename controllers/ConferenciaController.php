@@ -1,5 +1,6 @@
 <?php 
 
+require_once 'config/parametros.php';
 require_once 'models/conferencia.php';
 require_once 'models/asistencia.php';
 
@@ -7,6 +8,9 @@ class ConferenciaController{
 
     //para las vistas de reservas
     public function index(){
+        $asistidas = $this->getDetalle();
+        // var_dump($asistidas);
+        
         require_once 'views/reserva/entrada.php';
     }
 
@@ -27,6 +31,7 @@ class ConferenciaController{
     public function verReserva(){
 
         $detalles = $this->getDetalle();
+        $usuario = $this->obtenerUsuario();
 
         require_once 'views/reservas/ver_reserva.php';
     }
@@ -90,11 +95,20 @@ class ConferenciaController{
             }
         }
         
-        for($i = 0; $i < count($arrayConferencias); $i++){
-            if($arrayConferencias[$i]->id != 0){
-                $lista[] = $arrayConferencias[$i];
-            }
-        }
-        return $lista;
+        return $arrayConferencias;
+        // return $lista;
     }
+
+    public function obtenerUsuario(){
+        $usuario = false;
+
+        if(isset($_SESSION['indetificado'])){
+            $usuario = $_SESSION['indetificado']; 
+        }
+        elseif(isset($_SESSION['usuario'])){
+            $usuario = isset($_SESSION['usuario']);
+        }
+        return $usuario;
+    }
+
 }

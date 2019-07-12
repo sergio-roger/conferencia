@@ -314,3 +314,27 @@ footer .footer{
 .conferencia-detalle span{
     padding-left: 15px;
 }
+
+/* Estilos para la pagina 404 */
+.cuadro-imagen{
+    margin: 0 auto;
+    width: 60%;
+    overflow: hidden;
+}
+
+.cuadro-imagen img{
+    width: 100%;
+}
+
+.btn-error-inicio{
+    margin: 0 auto;
+}
+
+.error-boton{
+    text-decoration: none;
+    color: #fff !important;
+    font-weight: bold;
+    width: 200px;
+    padding: 10px;
+    cursor: pointer;
+}

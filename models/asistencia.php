@@ -109,6 +109,8 @@ class Asistencia
     public function getDetalleConferencia($id_usuario){
        $sql="select 
 	   (select conf_id from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`) as id,
+       (select conf_id from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`) as id_conf,
+       `detalle_asistencia`.`asi_id` as id_asis,
        (select conf_tema from `conferencias` 
        where `conferencias`.`conf_id` = (select conf_id from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`)) as tema,
        (select Concat(pon_nombre,' ',pon_apellido ) from `ponentes` WHERE `ponentes`.`pon_id` = `detalle_asistencia`.`pon_id`) as ponente,
@@ -116,11 +118,53 @@ class Asistencia
        (select asi_estado from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`) as estado,
        (select asi_prioridad from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`) as prioridad
        from `detalle_asistencia`
-       where usu_id = '{$id_usuario}'";
+       where usu_id ='{$id_usuario}'";
 
        $detalle = $this->db->query($sql);
 
        return $detalle;
+    }
 
+    public function getCoferencia($id_asistencia){
+        $sql= "select asistencias.conf_id as id_conf from asistencias 
+        where asistencias.asi_id = '{$id_asistencia}'";
+
+        $resultado = $this->db->query($sql);
+        $respuesta = false;
+
+        if($resultado && $resultado->num_rows == 1){
+            $usuario = $resultado->fetch_object();  //Objeto que devuelve la base de datos
+            $respuesta = $usuario;
+        }
+        return $respuesta;
+    }
+
+    public function eliminarDetalleAsistencia($id_usuario, $id_asistencia){
+
+        $sql = "DELETE FROM `detalle_asistencia` 
+        WHERE `detalle_asistencia`.`usu_id` = '{$id_usuario}' and `detalle_asistencia`.`asi_id`= '{$id_asistencia}'";
+
+        $respuesta = $this->db->query($sql);
+        return $respuesta;
+    }
+
+    public function eliminarAsistencia($id_asistencia){
+        $sql = "DELETE FROM `asistencias` 
+        WHERE `asistencias`.`asi_id`= '{$id_asistencia}'";
+
+        $respuesta = $this->db->query($sql);
+        return $respuesta;
+    }
+
+    public function eliminarCupo($id_conferencia){
+        $sql = "UPDATE conferencias
+        SET conf_cupos = conf_cupos - 1
+        WHERE conf_id = '{$id_conferencia}'";
+
+        // var_dump($sql);
+        // die();
+        $respuesta = $this->db->query($sql);
+
+        return $respuesta;
     }
 }

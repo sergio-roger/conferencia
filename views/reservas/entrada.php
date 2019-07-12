@@ -21,11 +21,15 @@
 
         <?php if(isset($_SESSION['indetificado'])): ?>
                  <span>ID: <?=$_SESSION['indetificado']->usu_id?></span>
-                <h5><?=$_SESSION['indetificado']->usu_nombre?>   <?=$_SESSION['indetificado']->usu_apellido?></h5>
+                <h5 class="usuario-nombre"><?=$_SESSION['indetificado']->usu_nombre?>   <?=$_SESSION['indetificado']->usu_apellido?></h5>
         <?php elseif(isset($_SESSION['usuario'])) : ?>
                 <span>ID: <?=$_SESSION['usuario']->usu_id?></span>
-                <h5><?=$_SESSION['usuario']->usu_nombre?> <?=$_SESSION['usuario']->usu_apellido?></h5>
+                <h5 class="usuario-nombre"><?=$_SESSION['usuario']->usu_nombre?> <?=$_SESSION['usuario']->usu_apellido?></h5>
         <?php endif;?>
 
-        <p>N° Reservas <span>12</span></p>
+        <?php if(isset($asistidas)): ?>
+                <p>N° Reservas: <strong class=""><?=$asistidas->num_rows?></strong></p>
+        <?php else: ?>
+                <p>N° Reservas: <span>0</span></p>
+        <?php endif; ?>
 </div>

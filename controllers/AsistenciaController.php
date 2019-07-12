@@ -83,4 +83,32 @@ class AsistenciaController{
         // die();
     
     }
+
+    public function eliminarAsistencia(){
+
+        //$id_usuario, $id_asistencia
+        $url = $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+        $recorte = explode("?", $url); 
+        $datos = $recorte[1];
+        $id = explode("&",$datos);
+        $arrayid_usu = explode("=",$id[0]);
+        $arrayid_asis = explode("=", $id[1]);
+        $id_usu = $arrayid_usu[1];
+        $id_asis = $arrayid_asis[1];
+
+        $asistencia = new Asistencia();
+        $conferencia = $asistencia->getCoferencia($id_asis);
+    
+        // var_dump($conferencia->id_conf);
+        // die();
+        
+        $resultado = $asistencia->eliminarDetalleAsistencia($id_usu, $id_asis);
+        $resultado = $asistencia->eliminarAsistencia($id_asis);
+        $resultado = $asistencia->eliminarCupo($conferencia->id_conf);
+
+        $_SESSION['eliminar_asistencia'] = 'ok';
+        //Crear procedimiento almacenado para eliminar cupos
+
+        header("Location:".base_url.'conferencia/verReserva');
+    }
 }

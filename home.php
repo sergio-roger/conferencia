@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once 'config/parametros.php';
 require_once 'autoload.php';
 require_once 'config/parametros.php';
 require_once 'helper/utilidad.php';
@@ -53,10 +54,12 @@ else{
         // Accion del controlador por default
     }
     else{
-        MostrarError();	
+        header("Location:".base_url.'/404.php');
+        // MostrarError();	
 	}
 }else{
-    MostrarError();
+    header("Location:".base_url.'/404.php');
+    // MostrarError();
 }
 
 require_once 'views/layouts/proyecto.php';

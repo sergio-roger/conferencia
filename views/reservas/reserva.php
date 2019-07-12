@@ -76,7 +76,7 @@
 
             <?php for($i = 0; $i < count($lista); $i++): ?>
                     <tr>
-                        <th scope="row"><?=$lista[$i]->id?></th>
+                        <th scope="row"><?=($i+1)?></th>
                         <td><?=$lista[$i]->tema?></td>
                         <td class="tabla-cupo"><?php
                             if($lista[$i]->disponible >= 0)
@@ -88,6 +88,20 @@
                         <td class="tabla-ponente"><?=$lista[$i]->ponentes?></td>
                         <td><?=$lista[$i]->hora?></td>
                         <td>
+
+                        <?php if($lista[$i]->id == 0): ?>
+                        <button class="asistir d-none" >
+                            <a href="<?=base_url?>asistencia/guardar?id=<?=$lista[$i]->id?>" class="" 
+                            id="aisitir-<?php echo 'ok' ?>">
+                                Asistir <i class="icon-ok"></i>
+                            </a>
+                                <!-- Ejecutar un método para hacer una reserva o asistencia -->
+                                <?php
+                                    // $asistencia = new AsistenciaController();
+                                    // $asistencia->index();
+                                ?>
+                            </button>
+                        <?php else: ?>
                         <button class="asistir" >
                             <a href="<?=base_url?>asistencia/guardar?id=<?=$lista[$i]->id?>" class="" 
                             id="aisitir-<?php echo 'ok' ?>">
@@ -99,6 +113,7 @@
                                     // $asistencia->index();
                                 ?>
                             </button>
+                        <?php endif; ?>
                         </td>
                     </tr>
             <?php endfor; ?>

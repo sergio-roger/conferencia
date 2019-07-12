@@ -173,6 +173,12 @@ body{
     font-size: 0.9rem;
 }
 
+
+.usuario-nombre{
+    color: #60204b;
+    font-weight: bold;
+}
+
 /* Los estilos responsives */
 @media screen and (max-width:400px){
 
@@ -238,6 +244,11 @@ body{
     .tabla-ponente{
         display: none;
     }
+}
+
+.delete-reserva a{
+    text-decoration: none;
+    color: #fff;
 }
 
 @media screen and (max-width:768px){
