@@ -41,23 +41,23 @@
     
         <div class="combo row">
             <div class="col-12 col-sm-7 col-md-6">
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="filtro">Filtrar por:</label>
                     <select name="filtro" id="cmb-filtro" class="form-control">
                         <option selected value="lab">Lugar</option>
                         <option value="hor">Hora inicio</option>
                     </select>
-                </div>
+                </div> -->
             </div>
             <div class="col-12 col-sm-5 col-md-6">
                 <!-- Dinamico -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="opcion">Opciones</label>
                     <select name="opcion" id="cmb-opcion" class="form-control">
                         <option value="lab-1">Laboratorio 1</option>
                         <option value="lab-2">Laboratorio 2</option>
                     </select>
-                </div>
+                </div> -->
             </div>
         </div>
 

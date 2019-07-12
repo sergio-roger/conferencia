@@ -161,8 +161,6 @@ class Asistencia
         SET conf_cupos = conf_cupos - 1
         WHERE conf_id = '{$id_conferencia}'";
 
-        // var_dump($sql);
-        // die();
         $respuesta = $this->db->query($sql);
 
         return $respuesta;

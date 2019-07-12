@@ -22,8 +22,8 @@
                     <img src="<?=base_url?>/assets/img/404Error.jpg" alt="">
                 </div>
             </div>
-            <div class="btn-error-inicio mt-5">
-                <a class="btn btn-info error-boton" href="<?=base_url?>">Regresar al Inicio</a>
+            <div class="btn-error-inicio mt-5">           
+                <a class="btn btn-info error-boton" href="<?=base_url?>home/index">Regresar al Inicio</a>
             </div>
 
         </div>

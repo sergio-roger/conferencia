@@ -1,7 +1,4 @@
-<?php
-//var_dump($detalles->fetch_object());
-//die();
-?>
+
     <div class="row d-flex- align-items-center">
         <div class="col-12 col-sm-12 col-md-5">
             <h3 class="titulo">Realizar reservas</h3>
@@ -21,20 +18,20 @@
     </div>
 
     <div class="combo row">
-        <div class="col-12 col-sm-7 col-md-6">
+        <!-- <div class="col-12 col-sm-7 col-md-6">
             <label for="filtro">Filtrar por:</label>
             <select name="filtro" id="cmb-filtro" class="form-control">
                 <option value="lab">Laboratorio</option>
                 <option value="hor">Hora inicio</option>
             </select>
-        </div>
+        </div> -->
         <div class="col-12 col-sm-5 col-md-6">
             <!-- Dinamico -->
-            <label for="opcion">Opciones</label>
+            <!-- <label for="opcion">Opciones</label>
             <select name="opcion" id="cmb-opcion" class="form-control">
                 <option value="lab-1">Laboratorio 1</option>
                 <option value="lab-2">Laboratorio 2</option>
-            </select>
+            </select> -->
         </div>
     </div>
     
@@ -51,11 +48,6 @@
         </thead>
         <tbody>
 
-        <?php 
-            // var_dump($detalles->fetch_object());
-            // var_dump($usuario);
-            // die();
-        ?>
         <?php while($item = $detalles->fetch_object()): ?>
 
         <?php if($item->estado == 'confirmado'): ?>
