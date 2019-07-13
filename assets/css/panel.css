@@ -282,6 +282,16 @@ footer p{
         min-width: 65px;
     }
 
+    .caja-ubicacion{
+        background: white !important;
+    }
+
+    .ubicacion{
+        width: 100%;
+        overflow: hidden;
+        background: white !important;
+    }
+
     footer{
         padding-top: 17px;
     }

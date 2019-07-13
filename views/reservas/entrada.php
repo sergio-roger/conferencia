@@ -32,4 +32,14 @@
         <?php else: ?>
                 <p>N° Reservas: <span>0</span></p>
         <?php endif; ?>
+
 </div>
+
+<div class="caja-ubicacion">
+        <div class="ubicacion">
+                <h3>Ubicacion</h3>
+                <img src="<?=base_url?>assets/img/img-ubicaciones.jpeg" 
+                alt="" width="600px">
+        </div>
+</div>
+

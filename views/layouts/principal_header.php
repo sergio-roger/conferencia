@@ -28,7 +28,7 @@
                 <a href="#" class="item-menu">Inicio</a>
                 <a href="#conferencias" class="item-menu">Conferencias</a>
                 <a href="#proyectos" class="item-menu">Proyecto</a>
-                <!-- <a href="#cronograma">Cronograma</a> -->
+                <a href="#cronograma">Cronograma</a>
             </div>
           </nav>
         <!--  Menu de navegacion-->
