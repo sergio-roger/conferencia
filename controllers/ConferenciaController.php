@@ -1,5 +1,4 @@
 <?php 
-
 require_once 'config/parametros.php';
 require_once 'models/conferencia.php';
 require_once 'models/asistencia.php';
@@ -102,6 +101,11 @@ class ConferenciaController{
             }
         }
         
+        for($i = 0; $i < count($arrayConferencias); $i++){
+            $arrayTemp = explode(" ",$arrayConferencias[$i]->lugar);
+            $arrayConferencias[$i]->lugar = $arrayTemp[1];
+        }
+
         return $arrayConferencias;
         // return $lista;
     }
@@ -117,5 +121,4 @@ class ConferenciaController{
         }
         return $usuario;
     }
-
 }

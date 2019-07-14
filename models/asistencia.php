@@ -92,10 +92,10 @@ class Asistencia
         return $resultado;
     }
 
-    public function guardar_UsuarioAsistencia($id_usuario, $id_asistencia, $id_ponente, $id_horario){
+    public function guardar_UsuarioAsistencia($id_usuario, $id_asistencia, $id_ponente, $id_horario, $id_laboratorio){
 
-        $sql = "INSERT INTO `detalle_asistencia` (`usu_id`, `asi_id`, `hor_id`, `pon_id`) 
-        VALUES ('{$id_usuario}', '{$id_asistencia}', '{$id_horario}', '{$id_ponente}');";
+        $sql = "INSERT INTO `detalle_asistencia` (`usu_id`, `asi_id`, `hor_id`, `pon_id`,`lab_id`) 
+        VALUES ('{$id_usuario}', '{$id_asistencia}', '{$id_horario}', '{$id_ponente}', '{$id_laboratorio}');";
 
         $guardar = $this->db->query($sql);
         $result = false; 
@@ -113,12 +113,13 @@ class Asistencia
        `detalle_asistencia`.`asi_id` as id_asis,
        (select conf_tema from `conferencias` 
        where `conferencias`.`conf_id` = (select conf_id from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`)) as tema,
+       (SELECT lab_nombre from laboratorios WHERE laboratorios.lab_id = detalle_asistencia.lab_id) as lugar,
        (select Concat(pon_nombre,' ',pon_apellido ) from `ponentes` WHERE `ponentes`.`pon_id` = `detalle_asistencia`.`pon_id`) as ponente,
        (SELECT hor_inicio from `horarios` where `horarios`.`hor_id` = `detalle_asistencia`.`hor_id`) as inicio,
        (select asi_estado from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`) as estado,
        (select asi_prioridad from `asistencias` WHERE `asistencias`.asi_id = `detalle_asistencia`.`asi_id`) as prioridad
        from `detalle_asistencia`
-       where usu_id ='{$id_usuario}'";
+       where usu_id = '{$id_usuario}'";
 
        $detalle = $this->db->query($sql);
 

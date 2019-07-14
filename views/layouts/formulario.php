@@ -8,12 +8,11 @@
                 <strong>Registro fallido</strong> :(
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
+                    <?php Utilidad::eliminarSeccion('fallido'); Utilidad::eliminarSeccion('registro');?>
                 </button>
             </div>
         </div>
    <?php endif; ?>
-
-
 
         <div class="container formulario">
             <div class="titulo text-center">

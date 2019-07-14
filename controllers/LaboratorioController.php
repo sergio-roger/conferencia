@@ -1,6 +1,7 @@
 <?php 
 
 require_once 'models/laboratorio.php';
+// require_once 'config/paramentros.php';
 
 class LaboratorioController{
 
@@ -8,7 +9,7 @@ class LaboratorioController{
         echo 'Controlador Laboratorio, Acción index';
     }
 
-    public function getLaboratorio($url){
+    public function getLaboratorio($id_conferencia){
 
     }
 }

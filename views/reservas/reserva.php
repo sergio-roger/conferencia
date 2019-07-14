@@ -68,6 +68,7 @@
                 <th scope="col">Tema</th>
                 <th scope="col" class="tabla-cupo">Cupos</th>
                 <th scope="col" class="tabla-ponente">Ponente</th>
+                <th scope="col">Sala</th>
                 <th scope="col">Inicio</th>
                 <th scope="col">Accion</th>
                 </tr>
@@ -86,6 +87,7 @@
                             }
                         ?></td>
                         <td class="tabla-ponente"><?=$lista[$i]->ponentes?></td>
+                        <td><?=$lista[$i]->lugar?></td>
                         <td><?=$lista[$i]->hora?></td>
                         <td>
 
@@ -103,7 +105,7 @@
                             </button>
                         <?php else: ?>
                         <button class="asistir" >
-                            <a href="<?=base_url?>asistencia/guardar?id=<?=$lista[$i]->id?>" class="" 
+                            <a href="<?=base_url?>Asistencia/guardar?id=<?=$lista[$i]->id?>" class="" 
                             id="aisitir-<?php echo 'ok' ?>">
                                 Asistir <i class="icon-ok"></i>
                             </a>

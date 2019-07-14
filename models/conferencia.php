@@ -128,7 +128,8 @@ class Conferencia{
         (SELECT lab_nombre from `laboratorios` where `conferencias`.`lab_id` = `laboratorios`.`lab_id`)as lugar,
         (SELECT hor_inicio from `horarios` WHERE `conferencias`.`hor_id` = `horarios`.`hor_id`) as hora,
         (SELECT (lab_capacidad - conf_cupos)from `laboratorios` where `conferencias`.`lab_id` = `laboratorios`.`lab_id`) as disponible
-        FROM `conferencias`";
+        FROM `conferencias`
+        where conf_estado = 'A'";
         
         $conferencias = $this->db->query($sql);
 

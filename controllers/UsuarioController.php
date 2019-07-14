@@ -41,18 +41,26 @@ class UsuarioController{
                     $_SESSION['correo'] = $usuario->getCorreo();
                     $_SESSION['login'] = 'dentro';
                 
-                    header("Location:".base_url.'home.php');
+                    // header("Location:".base_url.'home.php');
+                    echo '<script type="text/javascript">
+                    window.location="localhost/conferencia/home.php";
+                    </script>';
                 }
                 else{ //Registro fallido
                     $_SESSION['registro'] = "fallido";
-                    header("Location:".base_url.'index.php');
+                    //header("Location:".base_url.'index.php');
+                    echo '<script type="text/javascript">
+                    window.location="localhost/conferencia/index.php";
+                    </script>';
 
                 }
             }else{
                 $_SESSION['registro'] = "fallido";
-                header("Location:".base_url.'index.php');
+                //header("Location:".base_url.'index.php');
                 // echo 'Datos incompletos';
-
+                echo '<script type="text/javascript">
+                window.location="localhost/conferencia/index.php";
+                </script>';
             }
         }
         else{ //Registro fallido
@@ -132,10 +140,19 @@ class UsuarioController{
         if(isset($_SESSION['indetificado'])){
             Utilidad::eliminarSeccion('indetificado');
             Utilidad::eliminarSeccion('login');
-            header("Location:".base_url);
+            //header("Location:".base_url);
+            echo '<script type="text/javascript">
+            window.location="localhost/conferencia/index.php";
+            </script>';
         }else{
-            header("Location:".base_url);
+            //header("Location:".base_url);
+            echo '<script type="text/javascript">
+            window.location="localhost/conferencia/index.php";
+            </script>';
         }
-        header("Location:".base_url);
+        //header("Location:".base_url);
+        echo '<script type="text/javascript">
+            window.location="localhost/conferencia/index.php";
+            </script>';
     }
 }

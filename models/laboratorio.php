@@ -64,6 +64,21 @@ class Laboratorio{
             $respuesta = $lab->fetch_object();  //Objeto que devuelve la base de datos
         }
         return $respuesta;
-    }     
+    }
+    
+    // public function getlaboratorioPorConferencia($id_conferencia){
+    //     $sql = "SELECT
+    //     (SELECT lab_nombre as lugar FROM `laboratorios` WHERE laboratorios.lab_id = conferencias.lab_id) as lugar
+    //     from conferencias
+    //     WHERE conferencias.conf_id  = '{$id_conferencia}'";
+
+    //     $sala = $this->db->query($sql);
+    //     $respuesta = false;
+        
+    //     if($sala && $sala->num_rows == 1){
+    //         $respuesta = $sala->fetch_object();  //Objeto que devuelve la base de datos
+    //     }
+    //     return $respuesta;
+    // }
 
 }

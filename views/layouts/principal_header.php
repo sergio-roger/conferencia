@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="<?=base_url?>assets/css/fontello.css">
     <link rel="stylesheet" href="<?=base_url?>assets/css/style.css?v=1.1">
     <link rel="stylesheet" href="<?=base_url?>assets/css/responsive.css">
+
 </head>
 <body>
     
-    <header class="header">
+    <header class="header" style="ba">
        <div class="envoltura">
          <!--  Menu de navegacion-->
         <nav class="container d-flex justify-content-between align-items-center">
@@ -34,20 +35,20 @@
         <!--  Menu de navegacion-->
         
         <div class="texto-principal container d-flex flex-column align-items-center justify-content-center"> 
-              <div class="principal">
+              <!-- <div class="principal">
                <h1> III Ciclo de conferencias <span>MDLC</span> <sup>2</sup></h1>
               </div>  
 
               <div class="secundario">
                 <h2>XXI Aniversario Universidad Penìnsula de Santa Elena</h2>
-              </div>
+              </div> -->
           </div>
           <!-- d-flex justify-content-end align-items-center borde-2 -->
           <div class="container ">
               <div class="row detalle">
                   <div class="col-12 col-sm-6 col-md-6 d-flex justify-content-center">
-                      <div class="dm">Jueves 18 de Julio</div>
-                      <div class="dm">Upse</div>
+                      <!-- <div class="dm">Jueves 18 de Julio</div> -->
+                      <!-- <div class="dm">Upse</div> -->
                   </div>
                   <div class="col-12 col-sm-6 col-md-6 d-flex justify-content-md-end adaptar justify-content-center">
                       <!-- <a class="dm reservar" href="#">Reservar</a> -->

@@ -14,7 +14,10 @@ function MostrarError(){
 }
 
 if(!isset($_SESSION['login'])){
-    header("Location:".base_url);    
+    // header("Location:".base_url);    //Redirigir con javascript
+    echo '<script type="text/javascript">
+    window.location="localhost/conferencia/index.php";
+    </script>';
 }else{
 
     if(!isset($_POST['proyectos'])){
@@ -54,12 +57,16 @@ else{
         // Accion del controlador por default
     }
     else{
-        header("Location:".base_url.'/404.php');
-        // MostrarError();	
+        //header("Location:".base_url.'/404.php');
+        echo '<script type="text/javascript">
+        window.location="localhost/conferencia/404.php";
+        </script>';
 	}
 }else{
-    header("Location:".base_url.'/404.php');
-    // MostrarError();
+    //    header("Location:".base_url.'/404.php');
+    echo '<script type="text/javascript">
+    window.location="localhost/conferencia/404.php";
+    </script>';
 }
 
 require_once 'views/layouts/proyecto.php';

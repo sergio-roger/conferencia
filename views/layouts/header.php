@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="<?=base_url?>assets/css/panel.css">
 </head>
 <body>
-
         <div class="container-fluid">
             <div class="row">
                 <div class="barra-lateral col-12 col-sm-auto">
@@ -21,12 +20,11 @@
                     </div>
     
                     <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
-                        <a href="<?=base_url?>home/index"><i class="icon-home"></i><span>Inicio</span></a>
+                        <a href="<?=base_url?>Home/index"><i class="icon-home"></i><span>Inicio</span></a>
                         <a href="<?=base_url?>conferencia/reserva"><i class="icon-ticket"></i><span>Reservar</span></a>
                         <a href="<?=base_url?>conferencia/verReserva"><i class="icon-eye"></i><span>Ver reservas</span></a>
                         <!-- <a href=""><i class="icon-cog-alt"></i><span>Configuraciones</span></a> -->
                         <a href="<?=base_url?>usuario/salir"><i class="icon-logout"></i><span>Salir</span></a>
-    
                     </nav>
                 </div>
                 

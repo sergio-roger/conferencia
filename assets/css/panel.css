@@ -20,7 +20,7 @@ body{
 .barra-lateral{
     background: #262a34;
     color: #fff; 
-    min-width: 300px;
+    min-width: 275px;
     min-height: 100vh;
     padding: 0;
     position: fixed;
@@ -69,13 +69,13 @@ body{
 .main{
     padding-top: 40px;
     position: relative;
-    left: 300px;
+    left: 290px;
     width: 76.6%;
     padding-left: 10px;
 }
 
 .main .columna{
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .main .titulo{
@@ -120,7 +120,7 @@ body{
 
 .reservas{
     box-shadow: 0 0 4px rgba(0,0,0,.4);
-    padding: 20px;
+    padding: 15px;
     background-color: #fff;
 }
 
@@ -179,6 +179,14 @@ body{
     font-weight: bold;
 }
 
+.separador-entrada{
+    border:2px solid;
+ }
+
+ .ubicacion img{
+     width: 100%;
+ }
+ 
 /* Los estilos responsives */
 @media screen and (max-width:400px){
 
@@ -244,6 +252,10 @@ body{
     .tabla-ponente{
         display: none;
     }
+
+    .ubicacion img{
+        width: 100%;
+    }
 }
 
 .delete-reserva a{
@@ -280,16 +292,6 @@ footer p{
     }
     .barra-lateral{
         min-width: 65px;
-    }
-
-    .caja-ubicacion{
-        background: white !important;
-    }
-
-    .ubicacion{
-        width: 100%;
-        overflow: hidden;
-        background: white !important;
     }
 
     footer{

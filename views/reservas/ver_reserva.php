@@ -43,6 +43,7 @@
             <!-- <th scope="col">#</th> -->
             <th scope="col">Tema</th>
             <th class="tabla-ponente" scope="col">Ponente</th>
+            <th scope="col">Sala</th>
             <th scope="col">Inicio</th>
             <th scope="col">Estado</th>
             <th scope="col">Accion</th>
@@ -60,11 +61,12 @@
                 <!-- <th scope="row"><?=$item->id?></th> -->
                 <td><?=$item->tema?></td>
                 <td class="tabla-ponente"><?=$item->ponente?></td>
-                    <td><?=$item->inicio?></td>
-                    <td><?=$item->estado?></td>
+                <td><?=$item->lugar?></td>
+                <td><?=$item->inicio?></td>
+                <td><?=$item->estado?></td>
                 <td>
                     <button class="btn btn-danger delete-reserva">
-                        <a href="<?=base_url?>asistencia/eliminarAsistencia?id_usu=<?=$usuario->usu_id?>&id_asis=<?=$item->id_asis?>"><i class="icon-cancel"></i></a>
+                        <a href="<?=base_url?>Asistencia/eliminarAsistencia?id_usu=<?=$usuario->usu_id?>&id_asis=<?=$item->id_asis?>"><i class="icon-cancel"></i></a>
                     </button>
                 </td>
             </tr>

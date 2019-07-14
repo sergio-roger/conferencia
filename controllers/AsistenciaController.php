@@ -59,7 +59,7 @@ class AsistenciaController{
             $objconf->actualizarCupos($conferencia->id);
             $asistencia->guardar($conferencia, 0, $estado); 
             $ultimoAsistencia = $asistencia->ultimoRegistro();
-            $asistencia->guardar_UsuarioAsistencia($usuario->usu_id,$ultimoAsistencia->id, $ponente->id, $horario->id);           
+            $asistencia->guardar_UsuarioAsistencia($usuario->usu_id,$ultimoAsistencia->id, $ponente->id, $horario->id, $laboratorio->id);           
         }
         elseif($conferencia->cupos >= $laboratorio->capacidad && $conferencia->cupos < $desborde){
           
@@ -73,13 +73,16 @@ class AsistenciaController{
             $objconf->actualizarCupos($conferencia->id);
             $asistencia->guardar($conferencia,$prioridad,$estado);
             $ultimoAsistencia = $asistencia->ultimoRegistro();
-            $asistencia->guardar_UsuarioAsistencia($usuario->usu_id,$ultimoAsistencia->id, $ponente->id, $horario->id);           
+            $asistencia->guardar_UsuarioAsistencia($usuario->usu_id,$ultimoAsistencia->id, $ponente->id, $horario->id, $laboratorio->id);           
         }
         else{
             $_SESSION['alerta'] = 'alert-danger';
         }
 
-        header("Location:".base_url.'/conferencia/reserva');
+        //header("Location:".base_url.'/conferencia/reserva');
+        echo '<script type="text/javascript">
+        window.location="localhost/conferencia/conferencia/reserva";
+        </script>';
         // die();
     
     }
@@ -109,6 +112,10 @@ class AsistenciaController{
         $_SESSION['eliminar_asistencia'] = 'ok';
         //Crear procedimiento almacenado para eliminar cupos
 
-        header("Location:".base_url.'conferencia/verReserva');
+       // header("Location:".base_url.'conferencia/verReserva');
+        echo '<script type="text/javascript">
+        window.location="localhost/conferencia/conferencia/verReserva";
+        </script>';
+       
     }
 }

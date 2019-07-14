@@ -33,13 +33,25 @@
                 <p>N° Reservas: <span>0</span></p>
         <?php endif; ?>
 
-</div>
+        <hr class="separador-entrada">
 
-<div class="caja-ubicacion">
-        <div class="ubicacion">
-                <h3>Ubicacion</h3>
-                <img src="<?=base_url?>assets/img/img-ubicaciones.jpeg" 
-                alt="" width="600px">
+        <div class="">
+                <div class="ubicacion">
+                        <div class="row ">
+                                <div class="col-12 sm-6 col-md-6">
+                                   <h3>Cronograma</h3>
+                                </div>
+                                <div class="col-12 sm-6 col-md-6 d-flex justify-content-md-end
+                                justify-content-sm-start">
+                                <a href="https://drive.google.com/file/d/1ep9ZWguzBbWMRlYZ1G6GmCOaiHHWtHp7/view?usp=sharing"
+                                 target="_blank" class="ver-todas btn btn-danger color-white">Ver Cronograma de Actividades</a>
+                                </div>
+                        </div>
+                        <h3 class="pb-2">Ubicacion</h3>
+                        <img src="<?=base_url?>assets/img/img-ubicacion.png" 
+                        alt="">
+                </div>
         </div>
 </div>
+
 
